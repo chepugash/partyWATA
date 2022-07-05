@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_alias_preround.xml" value="0.1796875" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_alias_round.xml" value="0.1465811965811966" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_alias_settings.xml" value="0.1465811965811966" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_alias_teams.xml" value="0.1796875" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_alias_win.xml" value="0.134765625" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_menu.xml" value="0.134765625" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_tod_choice.xml" value="0.1796875" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_tod_game.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_tod_players.xml" value="0.14743589743589744" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_whoami_game.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_whoami_players.xml" value="0.1465811965811966" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_whoami_results.xml" value="0.1465811965811966" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
