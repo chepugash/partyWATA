@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/roundFragment">
+    app:startDestination="@id/playersFragment">
+    app:startDestination="@id/menuFragment">
 
     <fragment
         android:id="@+id/menuFragment"
@@ -82,15 +83,17 @@
         <action
             android:id="@+id/action_gameFragment_to_resultsFragment"
             app:destination="@id/resultsFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_playersFragment"
+            app:destination="@id/playersFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultsFragment"
         android:name="com.example.wata.ui.fragment.whoami.ResultsFragment"
-        android:label="ResultsFragment"
-        tools:layout="@layout/fragment_whoami_results">
+        android:label="ResultsFragment" >
         <action
-            android:id="@+id/action_resultsFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            android:id="@+id/action_resultsFragment_to_playersFragment"
+            app:destination="@id/playersFragment" />
     </fragment>
     <fragment
         android:id="@+id/playersFragment2"
