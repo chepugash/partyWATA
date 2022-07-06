@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/1/Desktop/partyWATA/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1645" />
+        <entry key="..\:/Users/1/Desktop/partyWATA/app/src/main/res/layout/fragment_alias_preround.xml" value="0.1" />
+        <entry key="..\:/Users/1/Desktop/partyWATA/app/src/main/res/layout/fragment_alias_round.xml" value="0.13269927536231885" />
+        <entry key="..\:/Users/1/Desktop/partyWATA/app/src/main/res/layout/fragment_alias_settings.xml" value="0.1" />
+        <entry key="..\:/Users/1/Desktop/partyWATA/app/src/main/res/layout/fragment_alias_teams.xml" value="0.22" />
+        <entry key="..\:/Users/1/Desktop/partyWATA/app/src/main/res/layout/fragment_alias_win.xml" value="0.13269927536231885" />
+        <entry key="..\:/Users/1/Desktop/partyWATA/app/src/main/res/layout/item_teams.xml" value="0.22" />
         <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/fragment_whoami_game.xml" value="0.16" />
         <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/fragment_whoami_players.xml" value="0.176" />
