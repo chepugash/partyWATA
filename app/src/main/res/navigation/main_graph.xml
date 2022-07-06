@@ -1,79 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
     app:startDestination="@id/playersFragment">
+    app:startDestination="@id/menuFragment">
 
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.example.wata.ui.fragment.MenuFragment"
-        android:label="MenuFragment" >
-        <action
-            android:id="@+id/action_menuFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+        android:label="MenuFragment"
+        tools:layout="@layout/fragment_menu">
         <action
             android:id="@+id/action_menuFragment_to_teamsFragment"
             app:destination="@id/teamsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/teamsFragment"
-        android:name="com.example.wata.ui.fragment.alias.TeamsFragment"
-        android:label="TeamsFragment" >
         <action
-            android:id="@+id/action_teamsFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
-        <action
-            android:id="@+id/action_teamsFragment_to_playersFragment"
+            android:id="@+id/action_menuFragment_to_playersFragment"
             app:destination="@id/playersFragment" />
         <action
-            android:id="@+id/action_teamsFragment_to_playersFragment2"
+            android:id="@+id/action_menuFragment_to_playersFragment2"
             app:destination="@id/playersFragment2" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.wata.ui.fragment.alias.SettingsFragment"
-        android:label="SettingsFragment" >
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_alias_settings">
         <action
             android:id="@+id/action_settingsFragment_to_preroundFragment"
             app:destination="@id/preroundFragment" />
         <action
-            android:id="@+id/action_settingsFragment_to_teamsFragment"
-            app:destination="@id/teamsFragment" />
+            android:id="@+id/action_settingsFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/preroundFragment"
         android:name="com.example.wata.ui.fragment.alias.PreroundFragment"
-        android:label="PreroundFragment" >
+        android:label="PreroundFragment"
+        tools:layout="@layout/fragment_alias_preround">
         <action
             android:id="@+id/action_preroundFragment_to_roundFragment"
             app:destination="@id/roundFragment" />
         <action
-            android:id="@+id/action_preroundFragment_to_teamsFragment"
-            app:destination="@id/teamsFragment" />
+            android:id="@+id/action_preroundFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/roundFragment"
         android:name="com.example.wata.ui.fragment.alias.RoundFragment"
-        android:label="RoundFragment" >
+        android:label="RoundFragment"
+        tools:layout="@layout/fragment_alias_round">
         <action
             android:id="@+id/action_roundFragment_to_winFragment"
             app:destination="@id/winFragment" />
         <action
-            android:id="@+id/action_roundFragment_to_teamsFragment"
-            app:destination="@id/teamsFragment" />
+            android:id="@+id/action_roundFragment_to_preroundFragment"
+            app:destination="@id/preroundFragment" />
     </fragment>
     <fragment
         android:id="@+id/winFragment"
         android:name="com.example.wata.ui.fragment.alias.WinFragment"
-        android:label="WinFragment" >
+        android:label="WinFragment"
+        tools:layout="@layout/fragment_alias_win">
         <action
-            android:id="@+id/action_winFragment_to_teamsFragment"
-            app:destination="@id/teamsFragment" />
+            android:id="@+id/action_winFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/playersFragment"
         android:name="com.example.wata.ui.fragment.whoami.PlayersFragment"
-        android:label="PlayersFragment" >
+        android:label="PlayersFragment"
+        tools:layout="@layout/fragment_whoami_players">
         <action
             android:id="@+id/action_playersFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
@@ -81,7 +78,8 @@
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.example.wata.ui.fragment.whoami.GameFragment"
-        android:label="GameFragment" >
+        android:label="GameFragment"
+        tools:layout="@layout/fragment_whoami_game">
         <action
             android:id="@+id/action_gameFragment_to_resultsFragment"
             app:destination="@id/resultsFragment" />
@@ -100,7 +98,8 @@
     <fragment
         android:id="@+id/playersFragment2"
         android:name="com.example.wata.ui.fragment.tod.PlayersFragment"
-        android:label="PlayersFragment" >
+        android:label="PlayersFragment"
+        tools:layout="@layout/fragment_tod_players">
         <action
             android:id="@+id/action_playersFragment2_to_choiceFragment"
             app:destination="@id/choiceFragment" />
@@ -108,7 +107,8 @@
     <fragment
         android:id="@+id/choiceFragment"
         android:name="com.example.wata.ui.fragment.tod.ChoiceFragment"
-        android:label="ChoiceFragment" >
+        android:label="ChoiceFragment"
+        tools:layout="@layout/fragment_tod_choice">
         <action
             android:id="@+id/action_choiceFragment_to_gameFragment2"
             app:destination="@id/gameFragment2" />
@@ -116,5 +116,22 @@
     <fragment
         android:id="@+id/gameFragment2"
         android:name="com.example.wata.ui.fragment.tod.GameFragment"
-        android:label="GameFragment" />
+        android:label="GameFragment"
+        tools:layout="@layout/fragment_tod_game">
+        <action
+            android:id="@+id/action_gameFragment2_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamsFragment"
+        android:name="com.example.wata.ui.fragment.alias.TeamsFragment"
+        android:label="TeamsFragment"
+        tools:layout="@layout/fragment_alias_teams">
+        <action
+            android:id="@+id/action_teamsFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_teamsFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
 </navigation>
