@@ -7,13 +7,11 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.wata.R
 
 class MainActivity : AppCompatActivity() {
-    class MainActivity : AppCompatActivity() {
-        private lateinit var controller: NavController
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_main)
-            controller = (supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment).navController
+    private lateinit var controller: NavController
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        controller = (supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment).navController
 
-        }
     }
 }
