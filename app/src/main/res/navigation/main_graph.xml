@@ -55,9 +55,6 @@
         <action
             android:id="@+id/action_roundFragment_to_preroundFragment"
             app:destination="@id/preroundFragment" />
-        <action
-            android:id="@+id/action_roundFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/winFragment"
