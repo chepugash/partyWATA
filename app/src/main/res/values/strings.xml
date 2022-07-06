@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">WATA</string>
+
+    <!--  Trust or Dare strings  -->
+    <string name="tod_players_header">Участники:</string>
+
+    <!--  Who am i strings  -->
+
+    <!--  alias strings  -->
+    
 </resources>
