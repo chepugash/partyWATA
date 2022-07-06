@@ -6,11 +6,9 @@ import androidx.navigation.NavController
 import com.example.wata.R
 
 class MainActivity : AppCompatActivity() {
-    class MainActivity : AppCompatActivity() {
-        private lateinit var controller: NavController
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_main)
-        }
+    private lateinit var controller: NavController
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
     }
 }
