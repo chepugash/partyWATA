@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_graph"
-    app:startDestination="@id/menuFragment">
+    app:startDestination="@id/playersFragment">
 
     <fragment
         android:id="@+id/menuFragment"
@@ -85,11 +85,18 @@
         <action
             android:id="@+id/action_gameFragment_to_resultsFragment"
             app:destination="@id/resultsFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_playersFragment"
+            app:destination="@id/playersFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultsFragment"
         android:name="com.example.wata.ui.fragment.whoami.ResultsFragment"
-        android:label="ResultsFragment" />
+        android:label="ResultsFragment" >
+        <action
+            android:id="@+id/action_resultsFragment_to_playersFragment"
+            app:destination="@id/playersFragment" />
+    </fragment>
     <fragment
         android:id="@+id/playersFragment2"
         android:name="com.example.wata.ui.fragment.tod.PlayersFragment"
