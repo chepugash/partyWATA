@@ -1,6 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/purple_200"
+        android:gravity="center_vertical"
+        android:paddingStart="72dp"
+        android:paddingEnd="0dp"
+        android:text="@string/teams"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_plus"
+        android:contentDescription="@string/todo" />
+
+    <ImageButton
+        android:id="@+id/ibtn_sweet_home"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@color/purple_200"
+        android:contentDescription="@null"
+        android:padding="12dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_baseline_home_24"
+        app:layout_constraintBottom_toBottomOf="@id/tv_appbar"
+        app:layout_constraintStart_toStartOf="@id/tv_appbar"
+        app:layout_constraintTop_toTopOf="@id/tv_appbar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_teams"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_appbar"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_teams" />
+
+    <Button
+        android:id="@+id/btn_plus"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/purple_200"
+        android:text="@string/plus"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_teams" />
+
+    <Button
+        android:id="@+id/btn_continue"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/purple_200"
+        android:text="@string/further"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

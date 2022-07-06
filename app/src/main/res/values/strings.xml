@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WATA</string>
+    <string name="teams">Команды</string>
+    <string name="plus">+</string>
+    <string name="further">Далее</string>
+    <string name="todo">TODO</string>
 </resources>
