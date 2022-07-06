@@ -13,7 +13,7 @@
         android:gravity="center_vertical"
         android:paddingStart="72dp"
         android:paddingEnd="0dp"
-        android:text="@string/teams"
+        android:text="@string/alias_teams"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/btn_plus"
-        android:contentDescription="@string/todo" />
+        android:contentDescription="@string/alias_todo" />
 
     <ImageButton
         android:id="@+id/ibtn_sweet_home"
@@ -59,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/purple_200"
-        android:text="@string/plus"
+        android:text="@string/alias_plus"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/purple_200"
-        android:text="@string/further"
+        android:text="@string/alias_further"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

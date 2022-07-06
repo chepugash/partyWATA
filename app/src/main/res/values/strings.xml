@@ -11,8 +11,8 @@
     <string name="alias_score">0</string>
     <string name="alias_team">Команда 1</string>
     <string name="alias_word">Слово</string>
-    <string name="alias_true">True</string>
-    <string name="alias_false">False</string>
+    <string name="alias_true">отгадано</string>
+    <string name="alias_false">пропустить</string>
     <string name="alias_winner">Победитель</string>
     <string name="alias_win_menu">Меню</string>
     <string name="alias_teams">Команды</string>
