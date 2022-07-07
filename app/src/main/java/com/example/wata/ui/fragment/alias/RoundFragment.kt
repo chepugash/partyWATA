@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Chronometer
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.wata.R
@@ -25,7 +26,7 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
         val args by navArgs<RoundFragmentArgs>()
         val team_id = args.teamId
         val round_time = args.roundTime
-        val point_for_win = args.pointsForWin
+        val points_for_win = args.pointsForWin
 
         var score = 0
 
@@ -52,10 +53,10 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
             }
         }
 
-        initChronometer(round_time)
+        initChronometer(team_id, round_time, points_for_win, score)
     }
 
-    private fun initChronometer(round_time: Int) {
+    private fun initChronometer(team_id: Int, round_time: Int, points_for_win: Int, score: Int) {
         chronometer = binding.chrTimer
         chronometer.isCountDown = true
         chronometer.base = SystemClock.elapsedRealtime() + round_time * 1000
@@ -63,7 +64,8 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
         chronometer.setOnChronometerTickListener {
             if (chronometer.text.toString() == "00:00") {
                 chronometer.stop()
-                findNavController().navigate(R.id.action_roundFragment_to_preroundFragment)
+                val action = RoundFragmentDirections.actionRoundFragmentToPreroundFragment(team_id, round_time, points_for_win, score)
+                binding.root.findNavController().navigate(action)
             }
         }
     }

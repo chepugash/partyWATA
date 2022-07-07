@@ -38,6 +38,18 @@
         android:name="com.example.wata.ui.fragment.alias.PreroundFragment"
         android:label="PreroundFragment"
         tools:layout="@layout/fragment_alias_preround">
+        <argument
+            android:name="team_id"
+            app:argType="integer" />
+        <argument
+            android:name="round_time"
+            app:argType="integer" />
+        <argument
+            android:name="points_for_win"
+            app:argType="integer" />
+        <argument
+            android:name="round_score"
+            app:argType="integer" />
         <action
             android:id="@+id/action_preroundFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
