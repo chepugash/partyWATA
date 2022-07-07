@@ -50,12 +50,18 @@
         <argument
             android:name="round_score"
             app:argType="integer" />
+        <argument
+            android:name="round"
+            app:argType="integer" />
         <action
             android:id="@+id/action_preroundFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
         <action
             android:id="@+id/action_preroundFragment_to_countdownFragment"
             app:destination="@id/countdownFragment" />
+        <action
+            android:id="@+id/action_preroundFragment_to_winFragment"
+            app:destination="@id/winFragment" />
     </fragment>
     <fragment
         android:id="@+id/roundFragment"
@@ -71,9 +77,9 @@
         <argument
             android:name="points_for_win"
             app:argType="integer" />
-        <action
-            android:id="@+id/action_roundFragment_to_winFragment"
-            app:destination="@id/winFragment" />
+        <argument
+            android:name="round"
+            app:argType="integer" />
         <action
             android:id="@+id/action_roundFragment_to_preroundFragment"
             app:destination="@id/preroundFragment" />

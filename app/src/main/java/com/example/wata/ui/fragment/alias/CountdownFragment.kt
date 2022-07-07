@@ -23,6 +23,7 @@ class CountdownFragment : Fragment(R.layout.fragment_alias_countdown) {
             val team = TeamRepository.teams[0]
             val round_time = 15
             val point_for_win = 50
+            val round = 1
             tvTeam.text = team.name
             object : CountDownTimer(4000, 1000) {
                 override fun onTick(milliseconds: Long) {
@@ -30,7 +31,7 @@ class CountdownFragment : Fragment(R.layout.fragment_alias_countdown) {
                     tvCountdown.text = String.format(s.toString())
                 }
                 override fun onFinish() {
-                    val action = CountdownFragmentDirections.actionCountdownFragmentToRoundFragment(team.id, round_time, point_for_win)
+                    val action = CountdownFragmentDirections.actionCountdownFragmentToRoundFragment(team.id, round_time, point_for_win, round)
                     binding.root.findNavController().navigate(action)
                 }
             }.start()

@@ -27,6 +27,7 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
         val team_id = args.teamId
         val round_time = args.roundTime
         val points_for_win = args.pointsForWin
+        val round = args.round
 
         var score = 0
 
@@ -53,10 +54,10 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
             }
         }
 
-        initChronometer(team_id, round_time, points_for_win, score)
+        initChronometer(team_id, round_time, points_for_win, score, round)
     }
 
-    private fun initChronometer(team_id: Int, round_time: Int, points_for_win: Int, score: Int) {
+    private fun initChronometer(team_id: Int, round_time: Int, points_for_win: Int, score: Int, round: Int) {
         chronometer = binding.chrTimer
         chronometer.isCountDown = true
         chronometer.base = SystemClock.elapsedRealtime() + round_time * 1000
@@ -64,7 +65,7 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
         chronometer.setOnChronometerTickListener {
             if (chronometer.text.toString() == "00:00") {
                 chronometer.stop()
-                val action = RoundFragmentDirections.actionRoundFragmentToPreroundFragment(team_id, round_time, points_for_win, score)
+                val action = RoundFragmentDirections.actionRoundFragmentToPreroundFragment(team_id, round_time, points_for_win, score, round)
                 binding.root.findNavController().navigate(action)
             }
         }
