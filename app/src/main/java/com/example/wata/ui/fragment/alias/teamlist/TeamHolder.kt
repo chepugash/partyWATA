@@ -11,23 +11,14 @@ import com.example.wata.ui.fragment.alias.TeamsFragment
 
 class TeamHolder(
     private val binding: ItemTeamsBinding,
+    private val onItemClick: (Int) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun onBind(team: Team) {
         with(binding) {
             tvItem.text = team.name
             root.setOnClickListener {
-            var myDialog: AlertDialog.Builder = AlertDialog.Builder(tvItem.context)
-                myDialog.setTitle("Введите название команды")
-                val weightInput: EditText = EditText(tvItem.context)
-                weightInput.setInputExtras(InputType.TYPE_CLASS_TEXT)
-                myDialog.setView(weightInput)
-
-                myDialog.setPositiveButton("OK",null)
-                    myDialog.show().getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-                        team.name= weightInput.text.toString()
-                        tvItem.text = weightInput.text
-                    }
+                onItemClick(team.id)
             }
         }
     }

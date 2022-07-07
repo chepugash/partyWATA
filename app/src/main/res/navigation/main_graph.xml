@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/countdownFragment">
     app:startDestination="@id/menuFragment">
 
     <fragment
@@ -32,6 +31,9 @@
         <action
             android:id="@+id/action_settingsFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_teamsFragment"
+            app:destination="@id/teamsFragment" />
     </fragment>
     <fragment
         android:id="@+id/preroundFragment"
