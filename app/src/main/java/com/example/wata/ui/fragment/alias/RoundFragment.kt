@@ -10,50 +10,52 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.wata.R
 import com.example.wata.databinding.FragmentAliasRoundBinding
-import java.lang.Integer.max
+import com.example.wata.ui.fragment.alias.teamlist.TeamRepository
+import kotlin.random.Random
 
 class RoundFragment : Fragment(R.layout.fragment_alias_round) {
     private lateinit var chronometer: Chronometer
     private var _binding: FragmentAliasRoundBinding? = null
     private val binding get() = _binding!!
 
-    private var game_score = 40
-    private val points_for_win = 50
-    private val round_time = 10
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentAliasRoundBinding.bind(view)
 
+        val args by navArgs<RoundFragmentArgs>()
+        val team_id = args.teamId
+        val round_time = args.roundTime
+        val point_for_win = args.pointsForWin
+
         var score = 0
-        var counter = 0
+
+        var counter = Random.nextInt(0, 100)
         var word = "Слово $counter"
 
         with(binding) {
             tvScore.text = score.toString()
             tvWord.text = word
+            tvTeam.text = TeamRepository.teams[team_id].name
             btnTrue.setOnClickListener {
                 score++
-                game_score++
-                counter++
+                counter = Random.nextInt(0, 100)
                 word = "Слово $counter"
                 tvScore.text = score.toString()
                 tvWord.text = word
             }
             btnFalse.setOnClickListener {
-                counter++
+                counter = Random.nextInt(0, 100)
                 score--
-                game_score--
                 tvScore.text = score.toString()
                 word = "Слово $counter"
                 tvWord.text = word
             }
         }
 
-        initChronometer()
+        initChronometer(round_time)
     }
 
-    fun initChronometer() {
+    private fun initChronometer(round_time: Int) {
         chronometer = binding.chrTimer
         chronometer.isCountDown = true
         chronometer.base = SystemClock.elapsedRealtime() + round_time * 1000
@@ -61,11 +63,7 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
         chronometer.setOnChronometerTickListener {
             if (chronometer.text.toString() == "00:00") {
                 chronometer.stop()
-                if (game_score >= points_for_win) {
-                    findNavController().navigate(R.id.action_roundFragment_to_winFragment)
-                } else {
-                    findNavController().navigate(R.id.action_roundFragment_to_preroundFragment)
-                }
+                findNavController().navigate(R.id.action_roundFragment_to_preroundFragment)
             }
         }
     }

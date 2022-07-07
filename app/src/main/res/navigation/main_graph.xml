@@ -50,6 +50,15 @@
         android:name="com.example.wata.ui.fragment.alias.RoundFragment"
         android:label="RoundFragment"
         tools:layout="@layout/fragment_alias_round">
+        <argument
+            android:name="team_id"
+            app:argType="integer" />
+        <argument
+            android:name="round_time"
+            app:argType="integer" />
+        <argument
+            android:name="points_for_win"
+            app:argType="integer" />
         <action
             android:id="@+id/action_roundFragment_to_winFragment"
             app:destination="@id/winFragment" />
