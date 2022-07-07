@@ -12,5 +12,9 @@
     <string name="alias_false">False</string>
     <string name="alias_winner">Победитель</string>
     <string name="alias_win_menu">Меню</string>
+    <string name="settings">Настройки</string>
+    <string name="count_words">Количество слов для победы:</string>
+    <string name="time_rounds">Время раунда (в секундах):</string>
+    <string name="default_time_value">155</string>
+    <string name="default_counter_value">55</string>
 </resources>
-

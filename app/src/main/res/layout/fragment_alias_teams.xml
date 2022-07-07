@@ -38,7 +38,7 @@
         android:contentDescription="@null"
         android:padding="12dp"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_baseline_home_24"
+        android:src="@drawable/ic_baseline_home"
         app:layout_constraintBottom_toBottomOf="@id/tv_appbar"
         app:layout_constraintStart_toStartOf="@id/tv_appbar"
         app:layout_constraintTop_toTopOf="@id/tv_appbar" />

@@ -20,18 +20,4 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Команда" />
 
-    <ImageButton
-        android:id="@+id/ibtn_x"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/white"
-        android:contentDescription="@null"
-        android:padding="12dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_baseline_close_24"
-        app:layout_constraintBottom_toBottomOf="@id/tv_item"
-        app:layout_constraintEnd_toEndOf="@id/tv_item"
-        app:layout_constraintTop_toTopOf="@id/tv_item" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

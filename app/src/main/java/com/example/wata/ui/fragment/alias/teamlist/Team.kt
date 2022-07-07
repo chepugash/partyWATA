@@ -1,6 +1,7 @@
 package com.example.wata.ui.fragment.alias.teamlist
 
 data class Team(
+    val id: Int,
     var name: String,
-    val points: Int
+    var points: Int
 )
