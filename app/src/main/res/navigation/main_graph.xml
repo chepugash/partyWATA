@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/teamsFragment">
+    app:startDestination="@id/menuFragment">
 
     <fragment
         android:id="@+id/menuFragment"
@@ -40,18 +40,39 @@
         android:name="com.example.wata.ui.fragment.alias.PreroundFragment"
         android:label="PreroundFragment"
         tools:layout="@layout/fragment_alias_preround">
-        <action
-            android:id="@+id/action_preroundFragment_to_roundFragment"
-            app:destination="@id/roundFragment" />
+        <argument
+            android:name="team_id"
+            app:argType="integer" />
+        <argument
+            android:name="round_time"
+            app:argType="integer" />
+        <argument
+            android:name="points_for_win"
+            app:argType="integer" />
+        <argument
+            android:name="round_score"
+            app:argType="integer" />
         <action
             android:id="@+id/action_preroundFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_preroundFragment_to_countdownFragment"
+            app:destination="@id/countdownFragment" />
     </fragment>
     <fragment
         android:id="@+id/roundFragment"
         android:name="com.example.wata.ui.fragment.alias.RoundFragment"
         android:label="RoundFragment"
         tools:layout="@layout/fragment_alias_round">
+        <argument
+            android:name="team_id"
+            app:argType="integer" />
+        <argument
+            android:name="round_time"
+            app:argType="integer" />
+        <argument
+            android:name="points_for_win"
+            app:argType="integer" />
         <action
             android:id="@+id/action_roundFragment_to_winFragment"
             app:destination="@id/winFragment" />
@@ -135,5 +156,14 @@
         <action
             android:id="@+id/action_teamsFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/countdownFragment"
+        android:name="com.example.wata.ui.fragment.alias.CountdownFragment"
+        android:label="CountdownFragment"
+        tools:layout="@layout/fragment_alias_countdown">
+        <action
+            android:id="@+id/action_countdownFragment_to_roundFragment"
+            app:destination="@id/roundFragment" />
     </fragment>
 </navigation>
