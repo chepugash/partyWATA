@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/roundFragment">
+    app:startDestination="@id/countdownFragment">
     app:startDestination="@id/menuFragment">
 
     <fragment
@@ -39,11 +39,11 @@
         android:label="PreroundFragment"
         tools:layout="@layout/fragment_alias_preround">
         <action
-            android:id="@+id/action_preroundFragment_to_roundFragment"
-            app:destination="@id/roundFragment" />
-        <action
             android:id="@+id/action_preroundFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_preroundFragment_to_countdownFragment"
+            app:destination="@id/countdownFragment" />
     </fragment>
     <fragment
         android:id="@+id/roundFragment"
@@ -133,5 +133,14 @@
         <action
             android:id="@+id/action_teamsFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/countdownFragment"
+        android:name="com.example.wata.ui.fragment.alias.CountdownFragment"
+        android:label="CountdownFragment"
+        tools:layout="@layout/fragment_alias_countdown">
+        <action
+            android:id="@+id/action_countdownFragment_to_roundFragment"
+            app:destination="@id/roundFragment" />
     </fragment>
 </navigation>

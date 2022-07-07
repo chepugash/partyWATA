@@ -19,6 +19,7 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
 
     private var game_score = 40
     private val points_for_win = 50
+    private val round_time = 10
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -55,7 +56,7 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
     fun initChronometer() {
         chronometer = binding.chrTimer
         chronometer.isCountDown = true
-        chronometer.base = SystemClock.elapsedRealtime() + 60000
+        chronometer.base = SystemClock.elapsedRealtime() + round_time * 1000
         chronometer.start()
         chronometer.setOnChronometerTickListener {
             if (chronometer.text.toString() == "00:00") {
