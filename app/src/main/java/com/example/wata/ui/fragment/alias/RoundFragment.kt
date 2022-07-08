@@ -5,7 +5,6 @@ import android.os.CountDownTimer
 import android.os.SystemClock
 import android.view.View
 import android.widget.Chronometer
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -20,10 +19,12 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
     private var _binding: FragmentAliasRoundBinding? = null
     private val binding get() = _binding!!
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentAliasRoundBinding.bind(view)
 
+        // will be sent with safeargs from preround_fragment
         val team_id = 0
         val round_time = 10
         val points_for_win = 50
@@ -31,8 +32,10 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
 
         var score = 0
 
+        // will be used with shared preference
         var counter = Random.nextInt(0, 100)
         var word = "Слово $counter"
+
 
         with(binding) {
             object : CountDownTimer(4000, 1000) {
@@ -83,11 +86,13 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
         }
     }
 
+
     private fun initChronometer(round_time: Int) {
         chronometer = binding.chrTimer
         chronometer.isCountDown = true
         chronometer.base = SystemClock.elapsedRealtime() + round_time * 1000
         chronometer.start()
+
         chronometer.setOnChronometerTickListener {
             if (chronometer.text.toString() == "00:00" || chronometer.text.toString()[3] == ':') {
                 chronometer.stop()
@@ -97,15 +102,6 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
         }
     }
 
-    override fun onStop() {
-        super.onStop()
-        binding.chrTimer.stop()
-    }
-
-    override fun onResume() {
-        super.onStart()
-        binding.chrTimer.start()
-    }
 
     override fun onDestroy() {
         _binding = null
