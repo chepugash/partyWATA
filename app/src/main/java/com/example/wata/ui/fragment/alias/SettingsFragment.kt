@@ -56,10 +56,10 @@ class SettingsFragment : Fragment(R.layout.fragment_alias_settings) {
             }
             btnContinue.setOnClickListener {
                 val action = SettingsFragmentDirections.actionSettingsFragmentToPreroundFragment(
-                    TeamRepository.teams[0].id,
+                    -1,
                     binding.tvTime.text.toString().toInt(),
                     binding.tvCounter.text.toString().toInt(),
-                    TeamRepository.teams[0].points,
+                    0,
                     1
                 )
                 binding.root.findNavController().navigate(action)
