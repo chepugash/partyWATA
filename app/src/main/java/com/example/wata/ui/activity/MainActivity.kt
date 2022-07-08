@@ -8,7 +8,6 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.wata.R
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var controller: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,9 +18,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private var back_pressed: Long = 0
-
     override fun onBackPressed() {
-
         if (back_pressed + 2000 > System.currentTimeMillis()) {
             super.onBackPressed()
         } else {
