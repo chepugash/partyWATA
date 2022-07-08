@@ -6,10 +6,9 @@ import android.os.Bundle;
 import android.view.View
 import android.widget.SeekBar
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.wata.R
-import com.example.wata.databinding.FragmentAliasSettingsBinding
-
 class SettingsFragment : Fragment(R.layout.fragment_alias_settings) {
 
     private var _binding: FragmentAliasSettingsBinding? = null
