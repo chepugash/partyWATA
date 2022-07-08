@@ -21,7 +21,9 @@ class GameFragment : Fragment(R.layout.fragment_whoami_game) {
     private var binding: FragmentWhoamiGameBinding? = null
     lateinit var gameText: TextView
     lateinit var pause: Button
-    lateinit var fragment: Fragment
+    lateinit var btnExit: Button
+    lateinit var btnContinue: Button
+    lateinit var playerText: TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,12 +31,41 @@ class GameFragment : Fragment(R.layout.fragment_whoami_game) {
         binding = FragmentWhoamiGameBinding.bind(view)
         gameText = view.findViewById(R.id.tv_game_text)
         pause = view.findViewById(R.id.bnt_pause)
-        fragment = view.findFragment()
+        btnExit = view.findViewById(R.id.btn_exit)
+        btnContinue = view.findViewById(R.id.btn_continue)
+        playerText = view.findViewById(R.id.tv_player_text)
 
         // Переворот экрана в горизонтальную ориентацию
         if (savedInstanceState == null) {
             activity?.apply {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            }
+        }
+
+        with(binding) {
+            pause.setOnClickListener {
+
+                pause.visibility = View.INVISIBLE
+                btnContinue.visibility = View.VISIBLE
+                btnExit.visibility = View.VISIBLE
+                playerText.visibility = View.INVISIBLE
+
+                val gameTextPause = gameText.text
+                gameText.text = "Вы действительно хотите выйти?"
+
+                btnExit.setOnClickListener {
+                    findNavController().navigate(
+                        R.id.action_gameFragment_to_playersFragment
+                    )
+                }
+
+                btnContinue.setOnClickListener {
+                    btnExit.visibility = View.INVISIBLE
+                    btnContinue.visibility = View.INVISIBLE
+                    pause.visibility = View.VISIBLE
+                    playerText.visibility = View.VISIBLE
+                    gameText.text = gameTextPause
+                }
             }
         }
 
@@ -51,6 +82,8 @@ class GameFragment : Fragment(R.layout.fragment_whoami_game) {
 
             }
         }.start()
+
+
 
 
         // ПЕРЕХОД НА НОВЫЙ PlayerFragment ПРИ НАЖАТИИ НА BACK

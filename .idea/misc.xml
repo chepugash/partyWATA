@@ -4,7 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/fragment_whoami_game.xml" value="0.16" />
+        <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/fragment_menu.xml" value="0.25" />
+        <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/fragment_tod_choice.xml" value="0.25" />
+        <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/fragment_tod_game.xml" value="0.25" />
+        <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/fragment_whoami_game.xml" value="0.176" />
         <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/fragment_whoami_players.xml" value="0.176" />
         <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/fragment_whoami_results.xml" value="0.1" />
         <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/drawable/rounded_corner.xml" value="0.1" />

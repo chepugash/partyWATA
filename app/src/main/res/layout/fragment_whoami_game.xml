@@ -6,42 +6,96 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FragmentGame"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
         android:id="@+id/tv_game_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        android:textSize="30sp"
-        android:text=""/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/bnt_pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#FDFDFD"
-        android:textColor="@color/black"
         android:text="II"
+        android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_game_text"
+        app:layout_constraintBottom_toTopOf="@+id/tv_player_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.02" />
+
+    <Button
+        android:id="@+id/btn_continue"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="Продолжить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.641"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_game_text"
+        app:layout_constraintVertical_bias="0.5"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/btn_exit"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F44336"
+        android:text=" Выход "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_continue"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_game_text"
+        app:layout_constraintVertical_bias="0.504"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/tv_player_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Очередь:"
+        android:textSize="25sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/tv_game_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.401" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:text="Не угадал"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintHorizontal_bias="0.959"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_game_text"
+        app:layout_constraintVertical_bias="0.503" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:text="Угадал"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_game_text"
+        app:layout_constraintVertical_bias="0.503" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
