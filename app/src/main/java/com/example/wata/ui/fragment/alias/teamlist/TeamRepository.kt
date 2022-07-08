@@ -12,11 +12,6 @@ object TeamRepository {
             1,
             "Команда 2",
             0
-        ),
-        Team(
-            2,
-            "Команда 3",
-            0
         )
 
     )
