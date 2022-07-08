@@ -21,7 +21,7 @@ class WinFragment : Fragment(R.layout.fragment_alias_win) {
         with(binding) {
             val args by navArgs<WinFragmentArgs>()
             var teamName = ""
-            for (i in 0 until TeamRepository.teams.count() - 1) {
+            for (i in 0 until TeamRepository.teams.count()) {
                 if (args.teamId == TeamRepository.teams[i].id) {
                     teamName = TeamRepository.teams[i].name
                 }

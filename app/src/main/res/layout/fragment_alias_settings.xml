@@ -128,7 +128,7 @@
         android:layout_width="wrap_content"
         android:layout_height="58dp"
         android:layout_marginTop="22dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="28dp"
         android:text="@string/alias_default_counter_value"
         android:textSize="28sp"
         android:textStyle="bold"

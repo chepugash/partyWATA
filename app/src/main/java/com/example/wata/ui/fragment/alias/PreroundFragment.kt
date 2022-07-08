@@ -8,6 +8,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.wata.R
 import com.example.wata.databinding.FragmentAliasPreroundBinding
 import com.example.wata.ui.fragment.alias.teamlist.TeamRepository
+import java.time.temporal.TemporalAmount
 
 class PreroundFragment : Fragment(R.layout.fragment_alias_preround) {
     private var _binding: FragmentAliasPreroundBinding? = null
@@ -38,9 +39,7 @@ class PreroundFragment : Fragment(R.layout.fragment_alias_preround) {
                     }
                 }
             } else if (teamId >= TeamRepository.teams[TeamRepository.teams.count() - 1].id) {
-                round++
                 TeamRepository.teams[TeamRepository.teams.count() - 1].points += roundScore
-                teamId = TeamRepository.teams[0].id
 
                 var counter = 0         // сколько команд с макс очками
                 var maxPoints = 0       // макс очки
@@ -66,14 +65,28 @@ class PreroundFragment : Fragment(R.layout.fragment_alias_preround) {
                             root.findNavController().navigate(action)
                         }
                     }
+                } else if (counter > 1) {
+                    var i = TeamRepository.teams.count() - 1
+                    while (i != -1) {
+                        if (TeamRepository
+                                .teams[i].points != maxPoints) {
+                            TeamRepository.teams.removeAt(i)
+                        }
+                        i--
+                    }
                 }
+                round++
+                teamId = TeamRepository.teams[0].id
 
             }
 
-
-
-
-            tvRound.text = "Раунд: $round"
+            for (i in 0 until TeamRepository.teams.count()) {
+                if (TeamRepository.teams[i].id == teamId) {
+                    tvTeamInRound.text = TeamRepository.teams[i].name
+                    break
+                }
+            }
+            tvRound.text = "Раунд $round"
             tvPointsForWin.text = pointsForWin.toString()
             tvTeamFirst.text = "${TeamRepository.teams[0].name}: ${TeamRepository.teams[0].points}"
             tvTeamSecond.text = "${TeamRepository.teams[1].name}: ${TeamRepository.teams[1].points}"
