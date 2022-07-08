@@ -31,27 +31,57 @@
         <action
             android:id="@+id/action_settingsFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_teamsFragment"
+            app:destination="@id/teamsFragment" />
     </fragment>
     <fragment
         android:id="@+id/preroundFragment"
         android:name="com.example.wata.ui.fragment.alias.PreroundFragment"
         android:label="PreroundFragment"
         tools:layout="@layout/fragment_alias_preround">
+        <argument
+            android:name="team_id"
+            app:argType="integer" />
+        <argument
+            android:name="round_time"
+            app:argType="integer" />
+        <argument
+            android:name="points_for_win"
+            app:argType="integer" />
+        <argument
+            android:name="round_score"
+            app:argType="integer" />
+        <argument
+            android:name="round"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_preroundFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
         <action
             android:id="@+id/action_preroundFragment_to_roundFragment"
             app:destination="@id/roundFragment" />
         <action
-            android:id="@+id/action_preroundFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            android:id="@+id/action_preroundFragment_to_winFragment"
+            app:destination="@id/winFragment" />
     </fragment>
     <fragment
         android:id="@+id/roundFragment"
         android:name="com.example.wata.ui.fragment.alias.RoundFragment"
         android:label="RoundFragment"
         tools:layout="@layout/fragment_alias_round">
-        <action
-            android:id="@+id/action_roundFragment_to_winFragment"
-            app:destination="@id/winFragment" />
+        <argument
+            android:name="team_id"
+            app:argType="integer" />
+        <argument
+            android:name="round_time"
+            app:argType="integer" />
+        <argument
+            android:name="points_for_win"
+            app:argType="integer" />
+        <argument
+            android:name="round"
+            app:argType="integer" />
         <action
             android:id="@+id/action_roundFragment_to_preroundFragment"
             app:destination="@id/preroundFragment" />
@@ -61,6 +91,9 @@
         android:name="com.example.wata.ui.fragment.alias.WinFragment"
         android:label="WinFragment"
         tools:layout="@layout/fragment_alias_win">
+        <argument
+            android:name="team_id"
+            app:argType="integer" />
         <action
             android:id="@+id/action_winFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
