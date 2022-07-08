@@ -24,16 +24,16 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentAliasRoundBinding.bind(view)
 
-        // will be sent with safeargs from preround_fragment
-        val team_id = 0
-        val round_time = 10
-        val points_for_win = 50
-        val round = 1
+        val args by navArgs<RoundFragmentArgs>()
+        val team_id = args.teamId
+        val round_time = args.roundTime
+        val points_for_win = args.pointsForWin
+        val round = args.round
 
         var score = 0
 
         // will be used with shared preference
-        var counter = Random.nextInt(0, 100)
+        var counter = Random.nextInt(0, 1000)
         var word = "Слово $counter"
 
 
