@@ -26,53 +26,53 @@ class PreroundFragment : Fragment(R.layout.fragment_alias_preround) {
         var round = args.round
 
         with(binding) {
-            if (teamId == TeamRepository.teams[TeamRepository.teams.size - 1].id) {
-                for (i in 0 until TeamRepository.teams.size) {
+
+            if (teamId == -1) {
+                teamId = TeamRepository.teams[0].id
+            } else if (teamId < TeamRepository.teams[TeamRepository.teams.count() - 1].id) {
+                for (i in 0 until TeamRepository.teams.count()) {
                     if (teamId == TeamRepository.teams[i].id) {
                         TeamRepository.teams[i].points += roundScore
-                        break
+                        teamId = TeamRepository.teams[i + 1].id
                     }
+                    break
                 }
-                // check winner
-                var maxPoints = 0
-                var counter = 0
-                var maxPointerId = 0
-                for (i in 0 until TeamRepository.teams.size) {
-                    if (TeamRepository.teams[i].points >= pointsForWin && TeamRepository.teams[i].points > maxPoints) {
-                        counter = 1
-                        maxPointerId = TeamRepository.teams[i].id
+            } else if (teamId == TeamRepository.teams[TeamRepository.teams.count() - 1].id) {
+                round++
+                TeamRepository.teams[TeamRepository.teams.count() - 1].points += roundScore
+                teamId = TeamRepository.teams[0].id
+
+                var counter = 0         // сколько команд с макс очками
+                var maxPoints = 0       // макс очки
+
+                for (i in 0 until TeamRepository.teams.count()) {
+                    if (TeamRepository.teams[i].points > maxPoints &&
+                        TeamRepository.teams[i].points >= pointsForWin) {
                         maxPoints = TeamRepository.teams[i].points
-                    } else if (TeamRepository.teams[i].points >= pointsForWin && TeamRepository.teams[i].points == maxPoints) {
+                        counter = 1
+                    } else if (TeamRepository.teams[i].points == maxPoints &&
+                        TeamRepository.teams[i].points >= pointsForWin) {
                         counter++
                     }
                 }
-                if (counter == 1) {
-                    val action = PreroundFragmentDirections.actionPreroundFragmentToWinFragment(
-                        maxPointerId
-                    )
-                    tvTeamThird.visibility = View.INVISIBLE
-                    tvTeamFourth.visibility = View.INVISIBLE
-                    binding.root.findNavController().navigate(action)
-                }
-                // winner checked
 
-                teamId = TeamRepository.teams[0].id
-                round += 1
-            } else {
-                for (i in 0 until TeamRepository.teams.size) {
-                    if (teamId == TeamRepository.teams[i].id) {
-                        TeamRepository.teams[i].points += roundScore
-                        if (i + 1 < TeamRepository.teams.size) {
-                            teamId = TeamRepository.teams[i + 1].id
-                        } else {
-                            teamId = TeamRepository.teams[0].id
+                if (counter == 1) {
+                    for (i in 0 until TeamRepository.teams.count()) {
+                        if (TeamRepository.teams[i].points == maxPoints) {
+                            val action = PreroundFragmentDirections
+                                .actionPreroundFragmentToWinFragment(
+                                    TeamRepository.teams[i].id
+                                )
+                            root.findNavController().navigate(action)
                         }
-                        break
                     }
                 }
+
             }
-            //tvTeamPoints.text = TeamRepository.teams[teamId].points.toString()
-            //tvTeamInRound.text = TeamRepository.teams[teamId].name
+
+
+
+
             tvRound.text = "Раунд: $round"
             tvPointsForWin.text = pointsForWin.toString()
             tvTeamFirst.text = "${TeamRepository.teams[0].name}: ${TeamRepository.teams[0].points}"
@@ -94,7 +94,7 @@ class PreroundFragment : Fragment(R.layout.fragment_alias_preround) {
                     pointsForWin,
                     round
                 )
-                binding.root.findNavController().navigate(action)
+                root.findNavController().navigate(action)
             }
         }
 
