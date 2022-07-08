@@ -19,4 +19,5 @@
     <string name="alias_plus">+</string>
     <string name="alias_further">Далее</string>
     <string name="alias_todo">TODO</string>
+    <string name="alias_last_word">Последнее слово</string>
 </resources>

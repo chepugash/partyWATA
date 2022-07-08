@@ -1,5 +1,7 @@
 package com.example.wata.ui.fragment.alias
 
+import com.example.wata.databinding.FragmentAliasSettingsBinding
+import com.example.wata.ui.fragment.alias.SettingsFragmentDirections.Companion.actionSettingsFragmentToPreroundFragment
 import android.os.Bundle;
 import android.view.View
 import android.widget.SeekBar
@@ -16,6 +18,7 @@ class SettingsFragment : Fragment(R.layout.fragment_alias_settings) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentAliasSettingsBinding.bind(view)
+
         with(binding) {
             seekBarTime.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(
@@ -54,9 +57,8 @@ class SettingsFragment : Fragment(R.layout.fragment_alias_settings) {
                 )
             }
             btnContinue.setOnClickListener {
-                findNavController().navigate(
-                    R.id.action_settingsFragment_to_preroundFragment
-                )
+                val action = SettingsFragmentDirections.actionSettingsFragmentToPreroundFragment(99, 5, 10, 0, 1)
+                binding.root.findNavController().navigate(action)
             }
         }
     }
