@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+
+        <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/fragment_whoami_game.xml" value="0.176" />
+        <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/fragment_whoami_players.xml" value="0.176" />
+        <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/fragment_whoami_results.xml" value="0.1" />
         <entry key="..\:/Users/Raijin/partyWATA/app/src/main/res/drawable/ic_player.xml" value="0.301" />
         <entry key="..\:/Users/Raijin/partyWATA/app/src/main/res/drawable/ic_players_add.xml" value="0.1175" />
         <entry key="..\:/Users/Raijin/partyWATA/app/src/main/res/drawable/rounded_frame.xml" value="0.24" />
