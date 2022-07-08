@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.InputType
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.wata.R
@@ -48,19 +49,38 @@ class TeamsFragment : Fragment(R.layout.fragment_alias_teams) {
         adapter = TeamAdapter(
             TeamRepository.teams
         ) {
+            val id = it
             val weightInput = EditText(activity)
             weightInput.inputType = InputType.TYPE_CLASS_TEXT
             val myDialog: AlertDialog = AlertDialog.Builder(activity)
                 .setTitle("Введите название команды:")
                 .setView(weightInput)
                 .setPositiveButton("OK") { _, _ ->
-                    TeamRepository.teams[it].name = weightInput.text.toString()
-                    adapter?.notifyDataSetChanged()
+                    for (i in 0 until TeamRepository.teams.size) {
+                        if (TeamRepository.teams[i].id == id) {
+                            if (validate(weightInput.text.toString())) {
+                                TeamRepository.teams[i].name = weightInput.text.toString()
+                                adapter?.notifyDataSetChanged()
+                                break
+                            } else {
+                                Toast.makeText(
+                                    activity,
+                                    "Некорректное количество символов",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
+                    }
                 }
                 .setNegativeButton("Удалить команду") { _, _ ->
                     if (TeamRepository.teams.size > 2) {
-                        TeamRepository.teams.removeAt(it)
-                        adapter?.notifyDataSetChanged()
+                        for (i in 0 until TeamRepository.teams.size) {
+                            if (TeamRepository.teams[i].id == id) {
+                                TeamRepository.teams.remove(TeamRepository.teams[i])
+                                adapter?.notifyDataSetChanged()
+                                break
+                            }
+                        }
                     }
                 }
                 .create()
@@ -72,6 +92,13 @@ class TeamsFragment : Fragment(R.layout.fragment_alias_teams) {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun validate(name: String): Boolean {
+        if (name.length in 1..20) {
+            return true
+        }
+        return false
     }
 
 }
