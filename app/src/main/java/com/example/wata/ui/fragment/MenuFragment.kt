@@ -11,13 +11,11 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
     private var _binding : FragmentMenuBinding ?= null
     private val binding get() = _binding!!
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentMenuBinding.bind(view)
 
         with(binding) {
-
             btnTeamsFrag.setOnClickListener {
                 findNavController().navigate(
                     R.id.action_menuFragment_to_teamsFragment
