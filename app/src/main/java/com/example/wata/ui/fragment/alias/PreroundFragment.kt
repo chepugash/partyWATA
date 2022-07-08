@@ -34,10 +34,10 @@ class PreroundFragment : Fragment(R.layout.fragment_alias_preround) {
                     if (teamId == TeamRepository.teams[i].id) {
                         TeamRepository.teams[i].points += roundScore
                         teamId = TeamRepository.teams[i + 1].id
+                        break
                     }
-                    break
                 }
-            } else if (teamId == TeamRepository.teams[TeamRepository.teams.count() - 1].id) {
+            } else if (teamId >= TeamRepository.teams[TeamRepository.teams.count() - 1].id) {
                 round++
                 TeamRepository.teams[TeamRepository.teams.count() - 1].points += roundScore
                 teamId = TeamRepository.teams[0].id
@@ -77,12 +77,12 @@ class PreroundFragment : Fragment(R.layout.fragment_alias_preround) {
             tvPointsForWin.text = pointsForWin.toString()
             tvTeamFirst.text = "${TeamRepository.teams[0].name}: ${TeamRepository.teams[0].points}"
             tvTeamSecond.text = "${TeamRepository.teams[1].name}: ${TeamRepository.teams[1].points}"
-            if (TeamRepository.teams.size >= 3) {
+            if (TeamRepository.teams.count() >= 3) {
                 tvTeamThird.text =
                     "${TeamRepository.teams[2].name}: ${TeamRepository.teams[2].points}"
                 tvTeamThird.visibility = View.VISIBLE
             }
-            if (TeamRepository.teams.size >= 4) {
+            if (TeamRepository.teams.count() >= 4) {
                 tvTeamFourth.text =
                     "${TeamRepository.teams[3].name}: ${TeamRepository.teams[3].points}"
                 tvTeamFourth.visibility = View.VISIBLE
