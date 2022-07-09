@@ -25,12 +25,13 @@
         android:textSize="20sp"
         android:layout_marginStart="8dp"
         android:hint="Введите имя"
+        android:text=""
         android:backgroundTint="@android:color/transparent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/iv_player_icon"/>
 
     <ImageView
-        android:id="@+id/iv_player_delete_icon"
+        android:id="@+id/iv_player_delete"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_marginStart="8dp"

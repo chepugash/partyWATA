@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/backgroundtod"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -55,6 +55,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_bottom" />
 
     <ImageView
+        android:id="@+id/im_play_tod"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:src="@drawable/start_game"

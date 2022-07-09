@@ -1,6 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundtod"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_upper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.1"
+        android:orientation="horizontal"/>
+
+    <TextView
+        android:id="@+id/tv_name_player_choice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Имя Игрока"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/gl_upper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_truth"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="italic"
+        android:fontFamily="sans-serif-black"
+        android:backgroundTint="#219BCC"
+        android:text="Правда"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/gl_upper" />
+
+    <TextView
+        android:id="@+id/tv_or"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="ИЛИ"
+        android:fontFamily="sans-serif-black"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_truth" />
+
+    <Button
+        android:id="@+id/btn_dare"
+        android:layout_width="250dp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="italic"
+        android:text="Действие"
+        android:fontFamily="sans-serif-black"
+        android:backgroundTint="#219BCC"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_or" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
