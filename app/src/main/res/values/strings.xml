@@ -20,8 +20,8 @@
     <string name="alias_further">Далее</string>
     <string name="alias_todo">TODO</string>
     <string name="alias_last_word">Последнее слово</string>
-    <string name="alias_count_words">Количество слов для победы:</string>
-    <string name="alias_time_rounds">Время раунда (в секундах):</string>
+    <string name="alias_count_words">Кол-во слов для победы:</string>
+    <string name="alias_time_rounds">Время раунда (сек):</string>
     <string name="alias_default_time_value">155</string>
     <string name="alias_default_counter_value">55</string>
     <string name="alias_go">Поехали!</string>

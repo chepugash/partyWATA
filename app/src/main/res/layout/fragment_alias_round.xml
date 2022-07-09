@@ -130,7 +130,6 @@
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="5"
-        android:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@id/btn_true"
         app:layout_constraintTop_toBottomOf="@id/gl_top"
         app:layout_constraintEnd_toEndOf="parent"
@@ -236,7 +235,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="650dp" />
+        app:layout_constraintGuide_end="80dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
