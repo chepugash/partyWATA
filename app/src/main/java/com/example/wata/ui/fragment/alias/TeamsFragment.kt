@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.InputType
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -33,7 +34,11 @@ class TeamsFragment : Fragment(R.layout.fragment_alias_teams) {
             btnPlus.setOnClickListener {
                 if (TeamRepository.teams.size < 4) {
                     val prevId: Int = TeamRepository.teams[TeamRepository.teams.size - 1].id
-                    TeamRepository.teams.add(Team(prevId + 1, "Новая команда", 0))
+                    if (TeamRepository.teams.size == 2) {
+                        TeamRepository.teams.add(Team(prevId + 1, "Команда ${prevId + 2}", 0))
+                    } else if (TeamRepository.teams.size == 3) {
+                        TeamRepository.teams.add(Team(prevId + 1, "Команда ${prevId + 2}", 0))
+                    }
                     adapter?.notifyDataSetChanged()
                 }
             }
@@ -58,16 +63,22 @@ class TeamsFragment : Fragment(R.layout.fragment_alias_teams) {
                 .setPositiveButton("OK") { _, _ ->
                     for (i in 0 until TeamRepository.teams.size) {
                         if (TeamRepository.teams[i].id == id) {
-                            if (validate(weightInput.text.toString())) {
-                                TeamRepository.teams[i].name = weightInput.text.toString()
-                                adapter?.notifyDataSetChanged()
-                                break
-                            } else {
+                            if (!validate(weightInput.text.toString())) {
                                 Toast.makeText(
                                     activity,
                                     "Некорректное количество символов",
                                     Toast.LENGTH_SHORT
                                 ).show()
+                            } else if (!checkDuplicates(weightInput.text.toString())) {
+                                Toast.makeText(
+                                    activity,
+                                    "Команда с таким названием уже существует",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            } else {
+                                TeamRepository.teams[i].name = weightInput.text.toString()
+                                adapter?.notifyDataSetChanged()
+                                break
                             }
                         }
                     }
@@ -101,4 +112,12 @@ class TeamsFragment : Fragment(R.layout.fragment_alias_teams) {
         return false
     }
 
+    private fun checkDuplicates(name: String): Boolean {
+        for (i in 0 until TeamRepository.teams.size) {
+            if (name == TeamRepository.teams[i].name) {
+                return false
+            }
+        }
+        return true
+    }
 }
