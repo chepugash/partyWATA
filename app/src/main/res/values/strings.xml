@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">WATA</string>
-    
+
     <!--  Trust or Dare strings  -->
     <string name="tod_players_header">Участники:</string>
 
@@ -20,17 +20,16 @@
     <string name="alias_further">Далее</string>
     <string name="alias_todo">TODO</string>
     <string name="alias_last_word">Последнее слово</string>
-    <string name="alias_count_words">Количество слов для победы:</string>
-    <string name="alias_time_rounds">Время раунда (в секундах):</string>
+    <string name="alias_count_words">Кол-во слов для победы:</string>
+    <string name="alias_time_rounds">Время раунда (сек):</string>
     <string name="alias_default_time_value">155</string>
     <string name="alias_default_counter_value">55</string>
     <string name="alias_go">Поехали!</string>
     <string name="alias_rating">РЕЙТИНГ КОМАНД</string>
-    <string name="alias_ready_to_play">готовятся к игре</string>
-    <string name="alias_round_play">Раунд</string>
     <string name="alias_settings">Настройки</string>
-
     <string name="menu_alias">Элиас</string>
     <string name="menu_who_i_am">Кто я?</string>
     <string name="menu_truth_or_dare">Правда или действие</string>
+    <string name="alias_round">Раунд</string>
+    <string name="alias_team_in_round">Команда в раунде</string>
 </resources>

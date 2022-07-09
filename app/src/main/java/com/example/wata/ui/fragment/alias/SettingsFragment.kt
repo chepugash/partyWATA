@@ -1,7 +1,5 @@
 package com.example.wata.ui.fragment.alias
 
-import com.example.wata.databinding.FragmentAliasSettingsBinding
-import com.example.wata.ui.fragment.alias.SettingsFragmentDirections.Companion.actionSettingsFragmentToPreroundFragment
 import android.os.Bundle;
 import android.view.View
 import android.widget.SeekBar
@@ -9,6 +7,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.wata.R
+import com.example.wata.databinding.FragmentAliasSettingsBinding
+import com.example.wata.ui.fragment.alias.teamlist.TeamRepository
+
 class SettingsFragment : Fragment(R.layout.fragment_alias_settings) {
 
     private var _binding: FragmentAliasSettingsBinding? = null
@@ -17,7 +18,6 @@ class SettingsFragment : Fragment(R.layout.fragment_alias_settings) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentAliasSettingsBinding.bind(view)
-
         with(binding) {
             seekBarTime.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(
@@ -48,7 +48,6 @@ class SettingsFragment : Fragment(R.layout.fragment_alias_settings) {
 
                 override fun onStopTrackingTouch(seekBar: SeekBar?) {
                 }
-
             })
             ibtnLeft.setOnClickListener {
                 findNavController().navigate(
@@ -56,7 +55,13 @@ class SettingsFragment : Fragment(R.layout.fragment_alias_settings) {
                 )
             }
             btnContinue.setOnClickListener {
-                val action = SettingsFragmentDirections.actionSettingsFragmentToPreroundFragment(99, 5, 10, 0, 1)
+                val action = SettingsFragmentDirections.actionSettingsFragmentToPreroundFragment(
+                    -1,
+                    binding.tvTime.text.toString().toInt(),
+                    binding.tvCounter.text.toString().toInt(),
+                    0,
+                    1
+                )
                 binding.root.findNavController().navigate(action)
             }
         }

@@ -8,11 +8,11 @@ import androidx.navigation.fragment.navArgs
 import com.example.wata.R
 import com.example.wata.databinding.FragmentAliasPreroundBinding
 import com.example.wata.ui.fragment.alias.teamlist.TeamRepository
+import java.time.temporal.TemporalAmount
 
 class PreroundFragment : Fragment(R.layout.fragment_alias_preround) {
     private var _binding: FragmentAliasPreroundBinding? = null
     private val binding get() = _binding!!
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -20,59 +20,98 @@ class PreroundFragment : Fragment(R.layout.fragment_alias_preround) {
 
         val args by navArgs<PreroundFragmentArgs>()
 
-        var team_id = args.teamId
-        val round_time = args.roundTime
-        val points_for_win = args.pointsForWin
-        val round_score = args.roundScore
+        var teamId = args.teamId
+        val roundTime = args.roundTime
+        val pointsForWin = args.pointsForWin
+        val roundScore = args.roundScore
         var round = args.round
 
         with(binding) {
-            if (team_id == 99) {
-                team_id = 0
-            } else if (team_id == TeamRepository.teams.count() - 1) {
-                TeamRepository.teams[team_id].points += round_score
 
-                // check winner
-                var max_points = 0
-                var counter = 0
-                var max_pointer_id = 0
+            if (teamId == -1) {
+                teamId = TeamRepository.teams[0].id
+            } else if (teamId < TeamRepository.teams[TeamRepository.teams.count() - 1].id) {
                 for (i in 0 until TeamRepository.teams.count()) {
-                    if (TeamRepository.teams[i].points >= points_for_win && TeamRepository.teams[i].points > max_points) {
+                    if (teamId == TeamRepository.teams[i].id) {
+                        TeamRepository.teams[i].points += roundScore
+                        teamId = TeamRepository.teams[i + 1].id
+                        break
+                    }
+                }
+            } else if (teamId >= TeamRepository.teams[TeamRepository.teams.count() - 1].id) {
+                TeamRepository.teams[TeamRepository.teams.count() - 1].points += roundScore
+
+                var counter = 0         // сколько команд с макс очками
+                var maxPoints = 0       // макс очки
+
+                for (i in 0 until TeamRepository.teams.count()) {
+                    if (TeamRepository.teams[i].points > maxPoints &&
+                        TeamRepository.teams[i].points >= pointsForWin) {
+                        maxPoints = TeamRepository.teams[i].points
                         counter = 1
-                        max_pointer_id = TeamRepository.teams[i].id
-                        max_points = TeamRepository.teams[i].points
-                    } else if (TeamRepository.teams[i].points >= points_for_win && TeamRepository.teams[i].points == max_points) {
+                    } else if (TeamRepository.teams[i].points == maxPoints &&
+                        TeamRepository.teams[i].points >= pointsForWin) {
                         counter++
                     }
                 }
+
                 if (counter == 1) {
-                    val action = PreroundFragmentDirections.actionPreroundFragmentToWinFragment(
-                        max_pointer_id
-                    )
-                    binding.root.findNavController().navigate(action)
+                    for (i in 0 until TeamRepository.teams.count()) {
+                        if (TeamRepository.teams[i].points == maxPoints) {
+                            val action = PreroundFragmentDirections
+                                .actionPreroundFragmentToWinFragment(
+                                    TeamRepository.teams[i].id
+                                )
+                            root.findNavController().navigate(action)
+                        }
+                    }
+                } else if (counter > 1) {
+                    var i = TeamRepository.teams.count() - 1
+                    while (i != -1) {
+                        if (TeamRepository
+                                .teams[i].points != maxPoints) {
+                            TeamRepository.teams.removeAt(i)
+                        }
+                        i--
+                    }
                 }
-                // winner checked
+                round++
+                teamId = TeamRepository.teams[0].id
 
-                team_id = 0
-                round += 1
-
-            } else {
-                TeamRepository.teams[team_id].points += round_score
-                team_id += 1
             }
-            tvTeamPoints.text = TeamRepository.teams[team_id].points.toString()
-            tvTeamInRound.text = TeamRepository.teams[team_id].name
-            tvRound.text = round.toString()
-            tvPointsForWin.text = points_for_win.toString()
 
+            for (i in 0 until TeamRepository.teams.count()) {
+                if (TeamRepository.teams[i].id == teamId) {
+                    tvTeamInRound.text = TeamRepository.teams[i].name
+                    break
+                }
+            }
+            tvRound.text = "Раунд $round"
+            tvPointsForWin.text = pointsForWin.toString()
+            tvTeamFirst.text = "${TeamRepository.teams[0].name}: ${TeamRepository.teams[0].points}"
+            tvTeamSecond.text = "${TeamRepository.teams[1].name}: ${TeamRepository.teams[1].points}"
+            if (TeamRepository.teams.count() >= 3) {
+                tvTeamThird.text =
+                    "${TeamRepository.teams[2].name}: ${TeamRepository.teams[2].points}"
+                tvTeamThird.visibility = View.VISIBLE
+            }
+            if (TeamRepository.teams.count() >= 4) {
+                tvTeamFourth.text =
+                    "${TeamRepository.teams[3].name}: ${TeamRepository.teams[3].points}"
+                tvTeamFourth.visibility = View.VISIBLE
+            }
             btnStart.setOnClickListener {
-                val action = PreroundFragmentDirections.actionPreroundFragmentToRoundFragment(team_id, round_time, points_for_win, round)
-                binding.root.findNavController().navigate(action)
+                val action = PreroundFragmentDirections.actionPreroundFragmentToRoundFragment(
+                    teamId,
+                    roundTime,
+                    pointsForWin,
+                    round
+                )
+                root.findNavController().navigate(action)
             }
         }
 
     }
-
 
     override fun onDestroy() {
         _binding = null

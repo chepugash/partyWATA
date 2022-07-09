@@ -21,7 +21,13 @@ class WinFragment : Fragment(R.layout.fragment_alias_win) {
 
         with(binding) {
             val args by navArgs<WinFragmentArgs>()
-            tvTeam.text = TeamRepository.teams[args.teamId].name
+            var teamName = ""
+            for (i in 0 until TeamRepository.teams.count()) {
+                if (args.teamId == TeamRepository.teams[i].id) {
+                    teamName = TeamRepository.teams[i].name
+                }
+            }
+            tvTeam.text = teamName
 
             btnMenu.setOnClickListener {
                 findNavController().navigate(R.id.action_winFragment_to_menuFragment)

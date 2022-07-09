@@ -56,7 +56,13 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
 
             tvScore.text = score.toString()
             tvWord.text = word
-            tvTeam.text = TeamRepository.teams[team_id].name
+
+            for (i in 0 until TeamRepository.teams.size) {
+                if (team_id == TeamRepository.teams[i].id) {
+                    tvTeam.text = TeamRepository.teams[i].name
+                    break
+                }
+            }
 
             btnTrue.setOnClickListener {
                 score++
