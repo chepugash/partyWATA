@@ -2,19 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/new_white"
+    android:background="@drawable/background_alias"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_settings"
@@ -89,7 +79,7 @@
         android:min="10"
         android:progress="155"
         android:theme="@style/SeekBarColor"
-        android:thumbTint="@color/purple_200"
+        android:thumbTint="@color/new_purple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_time_round" />
@@ -103,7 +93,7 @@
         android:min="10"
         android:progress="80"
         android:theme="@style/SeekBarColor"
-        android:thumbTint="@color/purple_200"
+        android:thumbTint="@color/new_purple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_count_words" />
