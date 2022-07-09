@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/gl_upper"
         tools:itemCount="3"
-        tools:listitem="@layout/item_player" />
+        tools:listitem="@layout/item_player_tod" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_bottom"
