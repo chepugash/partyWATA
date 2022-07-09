@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.wata.R
 import com.example.wata.databinding.FragmentMenuBinding;
+import com.example.wata.ui.fragment.alias.teamlist.TeamRepository
 
 class MenuFragment : Fragment(R.layout.fragment_menu) {
     private var _binding : FragmentMenuBinding ?= null
@@ -17,6 +18,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
 
         with(binding) {
             btnTeamsFrag.setOnClickListener {
+                TeamRepository.clearTeams()
                 findNavController().navigate(
                     R.id.action_menuFragment_to_teamsFragment
                 )
