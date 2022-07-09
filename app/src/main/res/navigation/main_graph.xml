@@ -106,6 +106,9 @@
         <action
             android:id="@+id/action_playersFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_playersFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -126,6 +129,9 @@
         <action
             android:id="@+id/action_resultsFragment_to_playersFragment"
             app:destination="@id/playersFragment" />
+        <action
+            android:id="@+id/action_resultsFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/playersFragment2"
