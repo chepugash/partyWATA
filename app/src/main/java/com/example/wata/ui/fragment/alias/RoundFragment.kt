@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.Chronometer
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.wata.R
 import com.example.wata.databinding.FragmentAliasRoundBinding
@@ -108,9 +107,9 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
         }
     }
 
-
     override fun onDestroy() {
         _binding = null
         super.onDestroy()
     }
+
 }

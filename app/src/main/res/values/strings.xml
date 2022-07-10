@@ -7,7 +7,7 @@
     <!--  Who am i strings  -->
 
     <!--  alias strings  -->
-    <string name="alias_guessed">Отгадано</string>
+    <string name="alias_guessed">Очки</string>
     <string name="alias_score">0</string>
     <string name="alias_team">Команда 1</string>
     <string name="alias_word">Слово</string>

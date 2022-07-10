@@ -8,7 +8,6 @@ import androidx.navigation.fragment.navArgs
 import com.example.wata.R
 import com.example.wata.databinding.FragmentAliasPreroundBinding
 import com.example.wata.ui.fragment.alias.teamlist.TeamRepository
-import java.time.temporal.TemporalAmount
 
 class PreroundFragment : Fragment(R.layout.fragment_alias_preround) {
     private var _binding: FragmentAliasPreroundBinding? = null
@@ -117,4 +116,5 @@ class PreroundFragment : Fragment(R.layout.fragment_alias_preround) {
         _binding = null
         super.onDestroy()
     }
+
 }

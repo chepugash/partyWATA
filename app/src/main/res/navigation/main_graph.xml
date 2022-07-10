@@ -97,6 +97,9 @@
         <action
             android:id="@+id/action_winFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_winFragment_to_menuFragment2"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/playersFragment"
