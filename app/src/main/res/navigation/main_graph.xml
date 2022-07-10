@@ -64,6 +64,9 @@
         <action
             android:id="@+id/action_preroundFragment_to_winFragment"
             app:destination="@id/winFragment" />
+        <action
+            android:id="@+id/action_preroundFragment_to_menuFragment2"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/roundFragment"
@@ -85,6 +88,9 @@
         <action
             android:id="@+id/action_roundFragment_to_preroundFragment"
             app:destination="@id/preroundFragment" />
+        <action
+            android:id="@+id/action_roundFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/winFragment"
@@ -96,6 +102,12 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_winFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_winFragment_to_menuFragment2"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_winFragment_to_menuFragment3"
             app:destination="@id/menuFragment" />
     </fragment>
     <fragment
@@ -151,6 +163,9 @@
         <action
             android:id="@+id/action_playersFragment2_to_choiceFragment"
             app:destination="@id/choiceFragment" />
+        <action
+            android:id="@+id/action_playersFragment2_to_menuFragment2"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/choiceFragment"
@@ -160,15 +175,24 @@
         <action
             android:id="@+id/action_choiceFragment_to_gameFragment2"
             app:destination="@id/gameFragment2" />
+        <action
+            android:id="@+id/action_choiceFragment_to_playersFragment2"
+            app:destination="@id/playersFragment2" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment2"
         android:name="com.example.wata.ui.fragment.tod.GameFragment"
         android:label="GameFragment"
         tools:layout="@layout/fragment_tod_game">
+        <argument
+            android:name="truth_or_dare"
+            app:argType="string"/>
+        <argument
+            android:name="random"
+            app:argType="integer"/>
         <action
-            android:id="@+id/action_gameFragment2_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            android:id="@+id/action_gameFragment2_to_playersFragment2"
+            app:destination="@id/playersFragment2" />
     </fragment>
     <fragment
         android:id="@+id/teamsFragment"

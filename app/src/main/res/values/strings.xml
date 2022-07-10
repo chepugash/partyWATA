@@ -7,7 +7,7 @@
     <!--  Who am i strings  -->
 
     <!--  alias strings  -->
-    <string name="alias_guessed">Отгадано</string>
+    <string name="alias_guessed">Очки</string>
     <string name="alias_score">0</string>
     <string name="alias_team">Команда 1</string>
     <string name="alias_word">Слово</string>
@@ -25,11 +25,12 @@
     <string name="alias_default_time_value">155</string>
     <string name="alias_default_counter_value">55</string>
     <string name="alias_go">Поехали!</string>
-    <string name="alias_rating">РЕЙТИНГ КОМАНД</string>
+    <string name="alias_rating">Очки для победы</string>
     <string name="alias_settings">Настройки</string>
     <string name="menu_alias">Элиас</string>
     <string name="menu_who_i_am">Кто я?</string>
     <string name="menu_truth_or_dare">Правда или действие</string>
     <string name="alias_round">Раунд</string>
     <string name="alias_team_in_round">Команда в раунде</string>
+    <string name="menu_label">ВЕЧЕРИНКА!</string>
 </resources>

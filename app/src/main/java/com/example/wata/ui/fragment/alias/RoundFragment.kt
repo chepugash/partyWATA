@@ -1,17 +1,19 @@
 package com.example.wata.ui.fragment.alias
 
+import android.content.Context
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.SystemClock
 import android.view.View
 import android.widget.Chronometer
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.wata.R
 import com.example.wata.databinding.FragmentAliasRoundBinding
 import com.example.wata.ui.fragment.alias.teamlist.TeamRepository
+import com.example.wata.ui.repository.Repo
 import kotlin.random.Random
 
 class RoundFragment : Fragment(R.layout.fragment_alias_round) {
@@ -31,10 +33,7 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
         val round = args.round
 
         var score = 0
-
-        // will be used with shared preference
-        var counter = Random.nextInt(0, 1000)
-        var word = "Слово $counter"
+        var word = Repo.getWordAlias()
 
 
         with(binding) {
@@ -70,8 +69,7 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
                     val action = RoundFragmentDirections.actionRoundFragmentToPreroundFragment(team_id, round_time, points_for_win, score, round)
                     binding.root.findNavController().navigate(action)
                 } else {
-                    counter = Random.nextInt(0, 100)
-                    word = "Слово $counter"
+                    word = Repo.getWordAlias()
                     tvScore.text = score.toString()
                     tvWord.text = word
                 }
@@ -83,9 +81,8 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
                     val action = RoundFragmentDirections.actionRoundFragmentToPreroundFragment(team_id, round_time, points_for_win, score, round)
                     binding.root.findNavController().navigate(action)
                 } else {
-                    counter = Random.nextInt(0, 100)
                     tvScore.text = score.toString()
-                    word = "Слово $counter"
+                    word = Repo.getWordAlias()
                     tvWord.text = word
                 }
             }
@@ -108,9 +105,24 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
         }
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    val action = RoundFragmentDirections.actionRoundFragmentToMenuFragment()
+                    binding.root.findNavController().navigate(action)
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            callback
+        )
+    }
 
     override fun onDestroy() {
         _binding = null
         super.onDestroy()
     }
+
 }

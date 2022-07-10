@@ -7,8 +7,12 @@ import android.view.View
 import android.view.Window
 import android.widget.Toast
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.wata.R
+import com.example.wata.databinding.FragmentAliasRoundBinding
+import com.example.wata.ui.fragment.alias.RoundFragment
+import com.example.wata.ui.fragment.alias.RoundFragmentDirections
 
 class MainActivity : AppCompatActivity() {
     private lateinit var controller: NavController
