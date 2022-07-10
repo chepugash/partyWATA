@@ -64,6 +64,9 @@
         <action
             android:id="@+id/action_preroundFragment_to_winFragment"
             app:destination="@id/winFragment" />
+        <action
+            android:id="@+id/action_preroundFragment_to_menuFragment2"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/roundFragment"
@@ -85,6 +88,9 @@
         <action
             android:id="@+id/action_roundFragment_to_preroundFragment"
             app:destination="@id/preroundFragment" />
+        <action
+            android:id="@+id/action_roundFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/winFragment"
@@ -96,6 +102,12 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_winFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_winFragment_to_menuFragment2"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_winFragment_to_menuFragment3"
             app:destination="@id/menuFragment" />
     </fragment>
     <fragment
