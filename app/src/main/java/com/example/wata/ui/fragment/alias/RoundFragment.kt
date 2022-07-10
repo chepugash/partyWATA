@@ -13,6 +13,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.wata.R
 import com.example.wata.databinding.FragmentAliasRoundBinding
 import com.example.wata.ui.fragment.alias.teamlist.TeamRepository
+import com.example.wata.ui.repository.Repo
 import kotlin.random.Random
 
 class RoundFragment : Fragment(R.layout.fragment_alias_round) {
@@ -25,6 +26,8 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentAliasRoundBinding.bind(view)
 
+        val repo = Repo()
+
         val args by navArgs<RoundFragmentArgs>()
         val team_id = args.teamId
         val round_time = args.roundTime
@@ -32,10 +35,7 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
         val round = args.round
 
         var score = 0
-
-        // will be used with shared preference
-        var counter = Random.nextInt(0, 1000)
-        var word = "Слово $counter"
+        var word = repo.getWord()
 
 
         with(binding) {
@@ -71,8 +71,7 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
                     val action = RoundFragmentDirections.actionRoundFragmentToPreroundFragment(team_id, round_time, points_for_win, score, round)
                     binding.root.findNavController().navigate(action)
                 } else {
-                    counter = Random.nextInt(0, 100)
-                    word = "Слово $counter"
+                    word = repo.getWord()
                     tvScore.text = score.toString()
                     tvWord.text = word
                 }
@@ -84,9 +83,8 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
                     val action = RoundFragmentDirections.actionRoundFragmentToPreroundFragment(team_id, round_time, points_for_win, score, round)
                     binding.root.findNavController().navigate(action)
                 } else {
-                    counter = Random.nextInt(0, 100)
                     tvScore.text = score.toString()
-                    word = "Слово $counter"
+                    word = repo.getWord()
                     tvWord.text = word
                 }
             }

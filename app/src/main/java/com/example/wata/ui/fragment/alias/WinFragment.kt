@@ -12,6 +12,7 @@ import com.example.wata.R
 import com.example.wata.databinding.FragmentAliasRoundBinding
 import com.example.wata.databinding.FragmentAliasWinBinding
 import com.example.wata.ui.fragment.alias.teamlist.TeamRepository
+import com.example.wata.ui.repository.Repo
 import kotlin.reflect.KProperty
 
 class WinFragment : Fragment(R.layout.fragment_alias_win) {

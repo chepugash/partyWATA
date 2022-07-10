@@ -11,6 +11,7 @@ import com.example.wata.R
 import com.example.wata.databinding.FragmentMenuBinding;
 import com.example.wata.ui.fragment.alias.WinFragmentDirections
 import com.example.wata.ui.fragment.alias.teamlist.TeamRepository
+import com.example.wata.ui.repository.Repo
 
 class MenuFragment : Fragment(R.layout.fragment_menu) {
     private var _binding : FragmentMenuBinding ?= null
@@ -19,6 +20,8 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentMenuBinding.bind(view)
+        val repo = Repo()
+        repo.endOfPlay_for_repo()
 
         with(binding) {
             btnTeamsFrag.setOnClickListener {
