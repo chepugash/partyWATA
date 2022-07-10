@@ -3,11 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/drawable/ounded_frame_tod.xml" value="0.2985" />
+        <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/drawable/rounded_frame.xml" value="0.2985" />
         <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/layout/fragment_tod_choice.xml" value="0.18059777102330293" />
         <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/layout/fragment_tod_game.xml" value="0.18059777102330293" />
         <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/layout/fragment_tod_players.xml" value="0.1" />
         <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/layout/item_player.xml" value="0.18840579710144928" />
-        <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/layout/item_player_tod.xml" value="0.18009118541033434" />
+        <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/layout/item_player_tod.xml" value="0.5" />
         <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
         <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_alias_preround.xml" value="0.1796875" />
         <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_alias_round.xml" value="0.1465811965811966" />

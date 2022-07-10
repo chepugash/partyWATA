@@ -153,6 +153,9 @@
         <action
             android:id="@+id/action_playersFragment2_to_choiceFragment"
             app:destination="@id/choiceFragment" />
+        <action
+            android:id="@+id/action_playersFragment2_to_menuFragment2"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/choiceFragment"
@@ -162,21 +165,24 @@
         <action
             android:id="@+id/action_choiceFragment_to_gameFragment2"
             app:destination="@id/gameFragment2" />
+        <action
+            android:id="@+id/action_choiceFragment_to_playersFragment2"
+            app:destination="@id/playersFragment2" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment2"
         android:name="com.example.wata.ui.fragment.tod.GameFragment"
         android:label="GameFragment"
         tools:layout="@layout/fragment_tod_game">
-        <action
-            android:id="@+id/action_gameFragment2_to_menuFragment"
-            app:destination="@id/menuFragment" />
         <argument
             android:name="truth_or_dare"
             app:argType="string"/>
         <argument
             android:name="random"
             app:argType="integer"/>
+        <action
+            android:id="@+id/action_gameFragment2_to_playersFragment2"
+            app:destination="@id/playersFragment2" />
     </fragment>
     <fragment
         android:id="@+id/teamsFragment"
