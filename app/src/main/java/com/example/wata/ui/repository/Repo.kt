@@ -1205,6 +1205,9 @@ object Repo {
 
     fun getWordAlias() :String{
         val index: Int = (0..998).random()
+        if (noAgain.count() == repoAlias.count()) {
+            noAgain.clear()
+        }
         if (!(noAgain.contains(index))) {
             noAgain.add(index)
             return repoAlias[index]
