@@ -9,7 +9,6 @@ class PlayerHolder(
     private val onItemClick: (Int) -> Unit
 ): RecyclerView.ViewHolder(binding.root) {
 
-
     fun onBind(player: PlayerWhoAmI) {
         with(binding) {
             etPlayerName.text = player.name
@@ -18,6 +17,4 @@ class PlayerHolder(
             }
         }
     }
-
-
 }
