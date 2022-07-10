@@ -14,7 +14,6 @@ import com.example.wata.databinding.FragmentAliasTeamsBinding
 import com.example.wata.ui.fragment.alias.teamlist.Team
 import com.example.wata.ui.fragment.alias.teamlist.TeamAdapter
 import com.example.wata.ui.fragment.alias.teamlist.TeamRepository
-import com.example.wata.ui.repository.RepoAlias
 
 class TeamsFragment : Fragment(R.layout.fragment_alias_teams) {
     private var _binding: FragmentAliasTeamsBinding? = null

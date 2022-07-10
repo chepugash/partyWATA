@@ -2,7 +2,7 @@ package com.example.wata.ui.repository
 
 import java.util.ArrayList
 
-object RepoAlias {
+object Repo {
     var noAgain = ArrayList<Int>()
     var repoTodQuestions = ArrayList<String>(arrayListOf(
         "Твой самый странный запрос в гугле? ",
@@ -1205,7 +1205,6 @@ object RepoAlias {
 
     fun getWordAlias() :String{
         val index: Int = (0..998).random()
-
         if (!(noAgain.contains(index))) {
             noAgain.add(index)
             return repoAlias[index]
