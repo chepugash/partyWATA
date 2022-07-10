@@ -25,7 +25,7 @@
     <string name="alias_default_time_value">155</string>
     <string name="alias_default_counter_value">55</string>
     <string name="alias_go">Поехали!</string>
-    <string name="alias_rating">РЕЙТИНГ КОМАНД</string>
+    <string name="alias_rating">Очки для победы</string>
     <string name="alias_settings">Настройки</string>
     <string name="menu_alias">Элиас</string>
     <string name="menu_who_i_am">Кто я?</string>
