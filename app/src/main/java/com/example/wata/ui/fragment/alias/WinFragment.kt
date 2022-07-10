@@ -1,8 +1,11 @@
 package com.example.wata.ui.fragment.alias
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.wata.R
@@ -33,6 +36,21 @@ class WinFragment : Fragment(R.layout.fragment_alias_win) {
                 findNavController().navigate(R.id.action_winFragment_to_menuFragment)
             }
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    val action = WinFragmentDirections.actionWinFragmentToMenuFragment()
+                    binding.root.findNavController().navigate(action)
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            callback
+        )
     }
 
     override fun onDestroy() {

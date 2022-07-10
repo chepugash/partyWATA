@@ -1,10 +1,12 @@
 package com.example.wata.ui.fragment.alias
 
+import android.content.Context
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.SystemClock
 import android.view.View
 import android.widget.Chronometer
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
@@ -105,6 +107,21 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
                 binding.tvLastWord.visibility = View.VISIBLE
             }
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    val action = RoundFragmentDirections.actionRoundFragmentToMenuFragment()
+                    binding.root.findNavController().navigate(action)
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            callback
+        )
     }
 
     override fun onDestroy() {

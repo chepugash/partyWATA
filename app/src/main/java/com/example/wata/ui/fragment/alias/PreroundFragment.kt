@@ -1,7 +1,9 @@
 package com.example.wata.ui.fragment.alias
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
@@ -109,7 +111,21 @@ class PreroundFragment : Fragment(R.layout.fragment_alias_preround) {
                 root.findNavController().navigate(action)
             }
         }
+    }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    val action = PreroundFragmentDirections.actionPreroundFragmentToMenuFragment()
+                    binding.root.findNavController().navigate(action)
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            callback
+        )
     }
 
     override fun onDestroy() {
