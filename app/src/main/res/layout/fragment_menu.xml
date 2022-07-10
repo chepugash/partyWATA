@@ -70,12 +70,12 @@
 
 
     <Button
-        android:backgroundTint="@color/new_purple"
-        android:fontFamily="@font/days_one"
         android:id="@+id/btn_players2_frag"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginTop="552dp"
+        android:backgroundTint="#E6AE05"
+        android:fontFamily="@font/days_one"
         android:text="@string/menu_truth_or_dare"
         android:textSize="16sp"
         android:textStyle="bold"
