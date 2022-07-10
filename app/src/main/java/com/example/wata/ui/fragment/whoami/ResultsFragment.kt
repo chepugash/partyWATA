@@ -8,23 +8,27 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.wata.R
 import com.example.wata.databinding.FragmentWhoamiResultsBinding
-import com.example.wata.ui.fragment.whoami.playerlist.PlayerRepository
+import com.example.wata.ui.fragment.whoami.playerlist.PlayerAdapter
+import com.example.wata.ui.fragment.whoami.resources.PlayerRepository
+import com.example.wata.ui.fragment.whoami.resources.PlayerWinRepository
+import com.example.wata.ui.fragment.whoami.resources.WordRepository
+import com.example.wata.ui.models.PlayerWhoAmI
 
 class ResultsFragment : Fragment(R.layout.fragment_whoami_results) {
 
     private var _binding: FragmentWhoamiResultsBinding? = null
     private val binding get() = _binding!!
+    private val adapter = PlayerAdapter(PlayerWinRepository.players){}
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         _binding = FragmentWhoamiResultsBinding.bind(view)
 
-        with(binding){
+        with(binding) {
 
-            // ВЫВОД ИГРОКОВ
-            for(i in 0 until PlayerRepository.players.count()){
-                tvPlayer.text = ("" + tvPlayer.text + "\n" + PlayerRepository.players[i].name)
+            if(PlayerWinRepository.players.isEmpty()){
+                PlayerWinRepository.players.add(PlayerWhoAmI(0,"", ""))
             }
 
             // ВОЗВРАЩЕНИЕ К ИГРОКАМ
@@ -32,6 +36,7 @@ class ResultsFragment : Fragment(R.layout.fragment_whoami_results) {
                 findNavController().navigate(
                     R.id.action_resultsFragment_to_playersFragment
                 )
+                PlayerRepository.players.clear()
             }
 
             // ВОЗВРАЩЕНИЕ В МЕНЮ
@@ -39,6 +44,13 @@ class ResultsFragment : Fragment(R.layout.fragment_whoami_results) {
                 findNavController().navigate(
                     R.id.action_resultsFragment_to_menuFragment
                 )
+                PlayerRepository.players.clear()
+            }
+
+            tvOnePlayerWin.text = "Первый вышедший игрок: \n${PlayerWinRepository.players[0].name}"
+
+            for(i in 0 until PlayerWinRepository.players.size){
+                tvPlayersWin.text = "${tvPlayersWin.text} \n  ${PlayerWinRepository.players[i].name}"
             }
         }
 
@@ -59,6 +71,7 @@ class ResultsFragment : Fragment(R.layout.fragment_whoami_results) {
         }
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
     }
+
 
     override fun onDestroyView() {
         _binding = null

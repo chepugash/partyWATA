@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wata.databinding.ItemPlayerBinding
+import com.example.wata.ui.fragment.whoami.resources.PlayerWinRepository
 import com.example.wata.ui.models.PlayerWhoAmI
 
 class PlayerAdapter(
-    private var list: ArrayList<PlayerWhoAmI>,
+    private val list: ArrayList<PlayerWhoAmI>,
     private val onItemClick: (Int) -> Unit,
 ): RecyclerView.Adapter<PlayerHolder>() {
 
@@ -32,6 +33,4 @@ class PlayerAdapter(
     override fun getItemCount(): Int {
         return list.size
     }
-
-
 }

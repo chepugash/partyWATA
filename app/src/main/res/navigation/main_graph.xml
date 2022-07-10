@@ -127,12 +127,22 @@
         android:name="com.example.wata.ui.fragment.whoami.GameFragment"
         android:label="GameFragment"
         tools:layout="@layout/fragment_whoami_game">
+        <argument
+            android:name="player_id"
+            app:argType="integer"
+            android:defaultValue="0"/>
         <action
             android:id="@+id/action_gameFragment_to_resultsFragment"
             app:destination="@id/resultsFragment" />
         <action
             android:id="@+id/action_gameFragment_to_playersFragment"
             app:destination="@id/playersFragment" />
+        <action
+            android:id="@+id/action_gameFragment_self"
+            app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultsFragment"

@@ -42,21 +42,6 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
             }
         }
     }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        val callback: OnBackPressedCallback =
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    activity?.finish()
-                }
-            }
-        requireActivity().onBackPressedDispatcher.addCallback(
-            this,
-            callback
-        )
-    }
-
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()

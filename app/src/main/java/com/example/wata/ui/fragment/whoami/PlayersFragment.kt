@@ -6,13 +6,16 @@ import android.os.Bundle
 import android.text.InputType
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.wata.R
 import com.example.wata.databinding.FragmentWhoamiPlayersBinding
 import com.example.wata.ui.fragment.whoami.playerlist.PlayerAdapter
-import com.example.wata.ui.fragment.whoami.playerlist.PlayerRepository
+import com.example.wata.ui.fragment.whoami.resources.PlayerRepository
+import com.example.wata.ui.fragment.whoami.resources.WordRepository
 import com.example.wata.ui.models.PlayerWhoAmI
+import kotlin.random.Random
 
 class PlayersFragment : Fragment(R.layout.fragment_whoami_players) {
 
@@ -26,6 +29,11 @@ class PlayersFragment : Fragment(R.layout.fragment_whoami_players) {
 
         _binding = FragmentWhoamiPlayersBinding.bind(view)
 
+        PlayerRepository.players.clear()
+        var rnds = Random(System.nanoTime())
+        PlayerRepository.players.add(PlayerWhoAmI(0,"Игрок 1", WordRepository.wordList[(0..WordRepository.wordList.size).random(rnds)]))
+        rnds = Random(System.nanoTime())
+        PlayerRepository.players.add(PlayerWhoAmI(1,"Игрок 2", WordRepository.wordList[(0..WordRepository.wordList.size).random(rnds)]))
         initRcViewPlayers()
 
         // Переворот экрана в вертикальную ориентацию
@@ -40,9 +48,18 @@ class PlayersFragment : Fragment(R.layout.fragment_whoami_players) {
         // ПЕРЕХОД В GameFragment
         with(binding) {
             btnPlayerStart.setOnClickListener {
-                findNavController().navigate(
-                    R.id.action_playersFragment_to_gameFragment
-                )
+                if(PlayerRepository.players.size < 2){
+                    Toast.makeText(
+                        activity,
+                        "Нужно 2 и более игроков",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }else{
+                    findNavController().navigate(
+                        R.id.action_playersFragment_to_gameFragment
+                    )
+                }
+
             }
         }
 
@@ -54,12 +71,15 @@ class PlayersFragment : Fragment(R.layout.fragment_whoami_players) {
                 )
             }
         }
+
         with(binding){
             btnPlus.setOnClickListener {
                 if (PlayerRepository.players.size < 10) {
-                    val prevId: Int = PlayerRepository.players[PlayerRepository.players.size - 1].id
-                    val idName: Int = prevId+2
-                    PlayerRepository.players.add(PlayerWhoAmI(prevId + 1, "Игрок $idName", "Слово $idName"))
+                    var prevId: Int = PlayerRepository.players[PlayerRepository.players.size - 1].id
+                    var idName: Int = prevId+2
+                    var rnds = Random(System.nanoTime())
+                    PlayerRepository.players.add(PlayerWhoAmI(prevId+1,"Игрок $idName", WordRepository.wordList[(0..WordRepository.wordList.size).random(rnds)]))
+                    idName+=1
                     adapter?.notifyDataSetChanged()
                 }
             }
@@ -71,26 +91,50 @@ class PlayersFragment : Fragment(R.layout.fragment_whoami_players) {
         adapter = PlayerAdapter(
             PlayerRepository.players
         ){
+            val id = it
             val weightInput = EditText(activity)
             weightInput.inputType = InputType.TYPE_CLASS_TEXT
             val myDialog: AlertDialog = AlertDialog.Builder(activity)
                 .setTitle("Введите имя игрока:")
                 .setView(weightInput)
                 .setPositiveButton("OK") { _, _ ->
-                    PlayerRepository.players[it].name = weightInput.text.toString()
-                    adapter?.notifyDataSetChanged()
+                    for (i in 0 until PlayerRepository.players.size) {
+                        if (PlayerRepository.players[i].id == id) {
+                            if (validate(weightInput.text.toString())) {
+                                PlayerRepository.players[i].name = weightInput.text.toString()
+                                adapter?.notifyDataSetChanged()
+                                break
+                            } else {
+                                Toast.makeText(
+                                    activity,
+                                    "Некорректное количество символов",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
+                    }
                 }
                 .setNegativeButton("Удалить игрока") { _, _ ->
                     if (PlayerRepository.players.size > 2) {
-                        PlayerRepository.players.removeAt(it)
-                        adapter?.notifyDataSetChanged()
+                        for (i in 0 until PlayerRepository.players.size) {
+                            if (PlayerRepository.players[i].id == id) {
+                                PlayerRepository.players.remove(PlayerRepository.players[i])
+                                adapter?.notifyDataSetChanged()
+                                break
+                            }
+                        }
                     }
                 }
                 .create()
             myDialog.show()
         }
         binding.rvPlayer.adapter = adapter
-
+    }
+    private fun validate(name: String): Boolean {
+        if (name.length in 1..20) {
+            return true
+        }
+        return false
     }
 
     override fun onDestroyView() {

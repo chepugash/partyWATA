@@ -9,10 +9,15 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.wata.R
 import com.example.wata.databinding.FragmentWhoamiGameBinding
-import com.example.wata.ui.fragment.whoami.playerlist.PlayerRepository
+import com.example.wata.ui.fragment.alias.PreroundFragmentArgs
+import com.example.wata.ui.fragment.alias.PreroundFragmentDirections
+import com.example.wata.ui.fragment.whoami.resources.PlayerRepository
+import com.example.wata.ui.fragment.whoami.resources.PlayerWinRepository
 
 class GameFragment : Fragment(R.layout.fragment_whoami_game) {
 
@@ -29,6 +34,10 @@ class GameFragment : Fragment(R.layout.fragment_whoami_game) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val args by navArgs<GameFragmentArgs>()
+
+        var id = args.playerId
 
         binding = FragmentWhoamiGameBinding.bind(view)
         gameText = view.findViewById(R.id.tv_game_text)
@@ -68,7 +77,7 @@ class GameFragment : Fragment(R.layout.fragment_whoami_game) {
 
             btnExit.setOnClickListener {
                 findNavController().navigate(
-                    R.id.action_gameFragment_to_resultsFragment
+                    R.id.action_gameFragment_to_menuFragment
                 )
             }
 
@@ -84,29 +93,81 @@ class GameFragment : Fragment(R.layout.fragment_whoami_game) {
             }
         }
 
-        while(PlayerRepository.players.isNotEmpty()){
-            for(i in 0 until PlayerRepository.players.size){
-
-            }
-        }
-
-        // Запуск таймера подготовки
         object : CountDownTimer(4000, 1000) {
             override fun onTick(milliseconds: Long) {
                 val s: Long = milliseconds % 60000 / 1000
                 gameText.text = String.format(s.toString())
             }
-
             override fun onFinish() {
-                gameText.text = "Железный человек"
                 guessedRight.visibility = View.VISIBLE
                 guessedWrong.visibility = View.VISIBLE
                 playerText.visibility = View.VISIBLE
                 pause.visibility = View.VISIBLE
                 square.visibility = View.VISIBLE
+                playerText.text = PlayerRepository.players[id].name
+                gameText.text = PlayerRepository.players[id].word
+
+                guessedWrong.setOnClickListener {
+                    id+=1
+                    if (id >= PlayerRepository.players.size){
+                        id = 0
+                    }
+                    val action = GameFragmentDirections.actionGameFragmentSelf(
+                        id
+                    )
+                    findNavController().navigate(action)
+
+                }
+
+                guessedRight.setOnClickListener {
+                    if (id == PlayerRepository.players.size - 1) {
+                        PlayerWinRepository.players.add(PlayerRepository.players[id])
+                        PlayerRepository.players.remove(PlayerRepository.players[id])
+                        if (id >= PlayerRepository.players.size) {
+                            id = 0
+                        }
+
+                        if(PlayerRepository.players.size==0){
+                            findNavController().navigate(
+                                R.id.action_gameFragment_to_resultsFragment
+                            )
+                        } else{
+                            val action = GameFragmentDirections.actionGameFragmentSelf(
+                                id
+                            )
+                            findNavController().navigate(action)
+                        }
+
+                    } else {
+                        var idPer = id
+
+                        for (i in 0 until PlayerRepository.players.size) {
+                            if (idPer == PlayerRepository.players[i].id) {
+                                PlayerWinRepository.players.add(PlayerRepository.players[i])
+                                PlayerRepository.players.remove(PlayerRepository.players[i])
+                                break
+                            }
+                        }
+
+                        for (i in id until PlayerRepository.players.size) {
+                            PlayerRepository.players[i].id--
+                        }
+
+                        if(PlayerRepository.players.size==0){
+                            findNavController().navigate(
+                                R.id.action_gameFragment_to_resultsFragment
+                            )
+                        } else{
+                            val action = GameFragmentDirections.actionGameFragmentSelf(
+                                id
+                            )
+                            findNavController().navigate(action)
+                        }
+                    }
+                }
             }
         }.start()
-        
+
         // ПЕРЕХОД НА НОВЫЙ PlayerFragment ПРИ НАЖАТИИ НА BACK
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
