@@ -13,6 +13,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.wata.R
 import com.example.wata.databinding.FragmentAliasRoundBinding
 import com.example.wata.ui.fragment.alias.teamlist.TeamRepository
+import com.example.wata.ui.repository.RepoAlias
 import kotlin.random.Random
 
 class RoundFragment : Fragment(R.layout.fragment_alias_round) {
@@ -32,10 +33,7 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
         val round = args.round
 
         var score = 0
-
-        // will be used with shared preference
-        var counter = Random.nextInt(0, 1000)
-        var word = "Слово $counter"
+        var word = RepoAlias.getWordAlias()
 
 
         with(binding) {
@@ -71,8 +69,7 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
                     val action = RoundFragmentDirections.actionRoundFragmentToPreroundFragment(team_id, round_time, points_for_win, score, round)
                     binding.root.findNavController().navigate(action)
                 } else {
-                    counter = Random.nextInt(0, 100)
-                    word = "Слово $counter"
+                    word = RepoAlias.getWordAlias()
                     tvScore.text = score.toString()
                     tvWord.text = word
                 }
@@ -84,9 +81,8 @@ class RoundFragment : Fragment(R.layout.fragment_alias_round) {
                     val action = RoundFragmentDirections.actionRoundFragmentToPreroundFragment(team_id, round_time, points_for_win, score, round)
                     binding.root.findNavController().navigate(action)
                 } else {
-                    counter = Random.nextInt(0, 100)
                     tvScore.text = score.toString()
-                    word = "Слово $counter"
+                    word = RepoAlias.getWordAlias()
                     tvWord.text = word
                 }
             }
