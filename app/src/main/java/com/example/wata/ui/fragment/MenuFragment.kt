@@ -1,6 +1,7 @@
 package com.example.wata.ui.fragment
 
 import android.content.Context
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
@@ -23,6 +24,12 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentMenuBinding.bind(view)
 
+        if (savedInstanceState == null) {
+            activity?.apply {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+            }
+        }
+
         with(binding) {
             btnTeamsFrag.setOnClickListener {
                 TeamRepository.clearTeams()
@@ -42,6 +49,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
             }
         }
     }
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
