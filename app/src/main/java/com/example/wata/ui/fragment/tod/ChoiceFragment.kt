@@ -23,20 +23,29 @@ class ChoiceFragment : Fragment(R.layout.fragment_tod_choice) {
         with(binding) {
 
             val playerToD: PlayerToD = QueuePlayers.queue.poll()
-            tvNamePlayerChoice.text = playerToD.name
+            tvTitlePlayerName.text = playerToD.name
             QueuePlayers.queue.add(playerToD)
 
             btnTruth.setOnClickListener {
                 val playerName = playerToD.name
+                if (Repo.repoTodQuestions.size < 2) {
+                    Repo.endOfPlay_for_repo()
+                }
                 val questionTOD = Repo.getQuestionTOD()
                 val action = ChoiceFragmentDirections.actionChoiceFragmentToGameFragment2(btnTruth.text.toString(), questionTOD, playerName)
                 findNavController().navigate(action)
             }
             btnDare.setOnClickListener {
                 val playerName = playerToD.name
+                if (Repo.repoTodActions.size < 2) {
+                    Repo.endOfPlay_for_repo()
+                }
                 val actionTOD = Repo.getActionTOD()
                 val action = ChoiceFragmentDirections.actionChoiceFragmentToGameFragment2(btnDare.text.toString(), actionTOD, playerName)
                 findNavController().navigate(action)
+            }
+            imPlayers.setOnClickListener {
+                findNavController().navigate(R.id.playersFragment2)
             }
         }
     }

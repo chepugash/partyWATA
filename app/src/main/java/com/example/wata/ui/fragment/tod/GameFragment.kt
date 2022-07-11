@@ -22,15 +22,18 @@ class GameFragment : Fragment(R.layout.fragment_tod_game) {
 
         with(binding) {
             val args by navArgs<GameFragmentArgs>()
-            tvTitle.text = args.truthOrDare
+            tvTitleMode.text = args.truthOrDare
             tvTaskOrQuestion.text = args.questionsActions
-            tvNamePlayerGame.text = args.playerName
+            tvTitlePlayerName.text = args.playerName
 
-            imRefresh.setOnClickListener {
-                refresh(tvTitle.text.toString())
+            btnRefresh.setOnClickListener {
+                refresh(tvTitleMode.text.toString())
             }
-            imPlayTod.setOnClickListener {
+            btnContinue.setOnClickListener {
                 findNavController().navigate(R.id.choiceFragment)
+            }
+            imPlayers.setOnClickListener {
+                findNavController().navigate(R.id.playersFragment2)
             }
         }
     }

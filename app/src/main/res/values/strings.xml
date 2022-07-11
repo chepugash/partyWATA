@@ -3,6 +3,17 @@
 
     <!--  Trust or Dare strings  -->
     <string name="tod_players_header">Участники:</string>
+    <string name="tod_player_name">Имя Игрока</string>
+    <string name="tod_truth">Правда</string>
+    <string name="tod_or">ИЛИ</string>
+    <string name="tod_dare">Действие</string>
+    <string name="tod_truth_or_dare">Правда или Действие</string>
+    <string name="tod_task">Задание</string>
+    <string name="tod_refresh">Обновить</string>
+    <string name="tod_continue">Продолжить</string>
+    <string name="tod_add_player">Добавить</string>
+    <string name="tod_start_game">Начать</string>
+    <string name="tod_enter_name">Введите имя</string>
 
     <!--  Who am i strings  -->
 

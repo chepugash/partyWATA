@@ -39,14 +39,14 @@ class PlayersFragment : Fragment(R.layout.fragment_tod_players) {
     private fun initRcViewPlayers() {
         binding.apply {
             rvTodPlayers.adapter = adapter
-            imAddPlayer.setOnClickListener {
+            btnAddPlayer.setOnClickListener {
                 if (PlayersRepository.players.size < 10) {
                     val player = PlayerToD()
                     PlayersRepository.players.add(player)
                     adapter.notifyItemInserted(PlayersRepository.players.size)
                 }
             }
-            imPlayTod.setOnClickListener {
+            btnPlayTod.setOnClickListener {
                 if (adapter.playersToDList.size < 2) {
                     alertDialogLessThanTwoPlayers()
                 } else if (checkPlayerName()) {
@@ -57,7 +57,11 @@ class PlayersFragment : Fragment(R.layout.fragment_tod_players) {
                         R.id.action_playersFragment2_to_choiceFragment
                     )
                 }
-
+            }
+            imGoToMenu.setOnClickListener {
+                Repo.endOfPlay_for_repo()
+                QueuePlayers.clearQueue()
+                findNavController().navigate(R.id.menuFragment)
             }
         }
     }

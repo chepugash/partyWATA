@@ -13,4 +13,5 @@
     <color name="new_purple">#7E57C2</color>
     <color name="gray">#373535</color>
     <color name="btn_purple">#E8E4EE</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>
