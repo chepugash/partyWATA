@@ -15,8 +15,6 @@
     <string name="tod_start_game">Начать</string>
     <string name="tod_enter_name">Введите имя</string>
 
-    <!--  Who am i strings  -->
-
     <!--  alias strings  -->
     <string name="alias_guessed">Очки</string>
     <string name="alias_score">0</string>
@@ -44,4 +42,19 @@
     <string name="alias_round">Раунд</string>
     <string name="alias_team_in_round">Команда в раунде</string>
     <string name="menu_label">ВЕЧЕРИНКА!</string>
+    <string name="result_result_fragment">Результаты</string>
+    <string name="play_again_result_fragment">Играть снова</string>
+    <string name="exit_result_fragment">В меню</string>
+    <string name="appbar_players_fragment">Игроки</string>
+    <string name="add_players_fragment">+</string>
+    <string name="start_players_fragment">Далее</string>
+    <string name="exit_players_fragment">В меню</string>
+    <string name="pause_game_fragment">II</string>
+    <string name="continue_game_fragment">Продолжить</string>
+    <string name="exit_game_fragment">Выход</string>
+    <string name="wrong_game_fragment">Не угадал</string>
+    <string name="right_game_fragment">Угадал</string>
+
+    <!--  Who am i strings  -->
+
 </resources>

@@ -9,13 +9,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.wata.R
 import com.example.wata.databinding.FragmentWhoamiGameBinding
-import com.example.wata.ui.fragment.alias.PreroundFragmentArgs
-import com.example.wata.ui.fragment.alias.PreroundFragmentDirections
 import com.example.wata.ui.fragment.whoami.resources.PlayerRepository
 import com.example.wata.ui.fragment.whoami.resources.PlayerWinRepository
 
@@ -31,12 +28,10 @@ class GameFragment : Fragment(R.layout.fragment_whoami_game) {
     lateinit var guessedWrong: Button
     lateinit var square: LinearLayout
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val args by navArgs<GameFragmentArgs>()
-
         var id = args.playerId
 
         binding = FragmentWhoamiGameBinding.bind(view)
@@ -98,6 +93,7 @@ class GameFragment : Fragment(R.layout.fragment_whoami_game) {
                 val s: Long = milliseconds % 60000 / 1000
                 gameText.text = String.format(s.toString())
             }
+
             override fun onFinish() {
                 guessedRight.visibility = View.VISIBLE
                 guessedWrong.visibility = View.VISIBLE
@@ -108,15 +104,14 @@ class GameFragment : Fragment(R.layout.fragment_whoami_game) {
                 gameText.text = PlayerRepository.players[id].word
 
                 guessedWrong.setOnClickListener {
-                    id+=1
-                    if (id >= PlayerRepository.players.size){
+                    id += 1
+                    if (id >= PlayerRepository.players.size) {
                         id = 0
                     }
                     val action = GameFragmentDirections.actionGameFragmentSelf(
                         id
                     )
                     findNavController().navigate(action)
-
                 }
 
                 guessedRight.setOnClickListener {
@@ -127,19 +122,18 @@ class GameFragment : Fragment(R.layout.fragment_whoami_game) {
                             id = 0
                         }
 
-                        if(PlayerRepository.players.size==0){
+                        if (PlayerRepository.players.size == 0) {
                             findNavController().navigate(
                                 R.id.action_gameFragment_to_resultsFragment
                             )
-                        } else{
+                        } else {
                             val action = GameFragmentDirections.actionGameFragmentSelf(
                                 id
                             )
                             findNavController().navigate(action)
                         }
-
                     } else {
-                        var idPer = id
+                        val idPer = id
 
                         for (i in 0 until PlayerRepository.players.size) {
                             if (idPer == PlayerRepository.players[i].id) {
@@ -153,11 +147,11 @@ class GameFragment : Fragment(R.layout.fragment_whoami_game) {
                             PlayerRepository.players[i].id--
                         }
 
-                        if(PlayerRepository.players.size==0){
+                        if (PlayerRepository.players.size == 0) {
                             findNavController().navigate(
                                 R.id.action_gameFragment_to_resultsFragment
                             )
-                        } else{
+                        } else {
                             val action = GameFragmentDirections.actionGameFragmentSelf(
                                 id
                             )
@@ -182,6 +176,5 @@ class GameFragment : Fragment(R.layout.fragment_whoami_game) {
     override fun onDestroyView() {
         binding = null
         super.onDestroyView()
-
     }
 }
