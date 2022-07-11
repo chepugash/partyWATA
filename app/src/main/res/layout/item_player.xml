@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="8dp"
-    android:background="@drawable/rounded_frame"
+    android:background="@drawable/rounded_frame_for_players_whoami"
     android:layout_gravity="center"
     android:backgroundTint="#f9fdfd"
     android:layout_width="wrap_content"
