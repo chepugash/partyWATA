@@ -3,14 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/fragment_whoami_game.xml" value="0.1" />
-        <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/fragment_whoami_players.xml" value="0.2" />
-        <entry key="..\:/Users/Blinov Dmitrii/AndroidStudioProjects/partyWATA/app/src/main/res/layout/fragment_whoami_results.xml" value="0.1814814814814815" />
         <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/drawable/ounded_frame_tod.xml" value="0.2985" />
         <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/drawable/rounded_frame.xml" value="0.2985" />
         <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/layout/fragment_tod_choice.xml" value="0.18059777102330293" />
         <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/layout/fragment_tod_game.xml" value="0.18059777102330293" />
-        <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/layout/fragment_tod_players.xml" value="0.1" />
+        <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/layout/fragment_tod_players.xml" value="0.14" />
         <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/layout/item_player.xml" value="0.18840579710144928" />
         <entry key="..\:/Users/Raijin/ProjectWATA/app/src/main/res/layout/item_player_tod.xml" value="0.5" />
         <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
@@ -19,10 +16,13 @@
         <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_alias_settings.xml" value="0.1465811965811966" />
         <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_alias_teams.xml" value="0.1796875" />
         <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_alias_win.xml" value="0.134765625" />
-        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_menu.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_menu.xml" value="0.134765625" />
         <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_tod_choice.xml" value="0.1796875" />
         <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_tod_game.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_tod_players.xml" value="0.14743589743589744" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_whoami_game.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_whoami_players.xml" value="0.1465811965811966" />
+        <entry key="..\:/Users/chepu/partyWATA/app/src/main/res/layout/fragment_whoami_results.xml" value="0.1465811965811966" />
       </map>
     </option>
   </component>

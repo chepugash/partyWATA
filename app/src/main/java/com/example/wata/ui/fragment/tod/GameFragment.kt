@@ -9,14 +9,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.wata.R
 import com.example.wata.databinding.FragmentTodGameBinding
-import com.example.wata.ui.fragment.tod.resources.DareRepository
-import com.example.wata.ui.fragment.tod.resources.TruthRepository
+import com.example.wata.ui.repository.Repo
 
 class GameFragment : Fragment(R.layout.fragment_tod_game) {
     private var _binding: FragmentTodGameBinding? = null
     private val binding get() = _binding!!
     private val dareString = "Действие"
-    private val truthString = "Правда"
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,11 +23,8 @@ class GameFragment : Fragment(R.layout.fragment_tod_game) {
         with(binding) {
             val args by navArgs<GameFragmentArgs>()
             tvTitle.text = args.truthOrDare
-            if (tvTitle.text.equals(truthString)) {
-                tvTaskOrQuestion.text = TruthRepository.truthList[args.random]
-            } else {
-                tvTaskOrQuestion.text = DareRepository.dareList[args.random]
-            }
+            tvTaskOrQuestion.text = args.questionsActions
+            tvNamePlayerGame.text = args.playerName
 
             imRefresh.setOnClickListener {
                 refresh(tvTitle.text.toString())
@@ -37,7 +32,6 @@ class GameFragment : Fragment(R.layout.fragment_tod_game) {
             imPlayTod.setOnClickListener {
                 findNavController().navigate(R.id.choiceFragment)
             }
-            tvNamePlayerGame.text = PlayersRepository.players[PlayersRepository.players.size - 1].name
         }
     }
 
@@ -63,9 +57,9 @@ class GameFragment : Fragment(R.layout.fragment_tod_game) {
 
     private fun refresh(choice: String) {
         if (choice == dareString) {
-            binding.tvTaskOrQuestion.text = DareRepository.dareList[(0 until DareRepository.dareList.size).random()]
+            binding.tvTaskOrQuestion.text = Repo.getActionTOD()
         } else {
-            binding.tvTaskOrQuestion.text = TruthRepository.truthList[(0 until TruthRepository.truthList.size).random()]
+            binding.tvTaskOrQuestion.text = Repo.getQuestionTOD()
         }
     }
 

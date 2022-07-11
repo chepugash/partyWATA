@@ -188,8 +188,11 @@
             android:name="truth_or_dare"
             app:argType="string"/>
         <argument
-            android:name="random"
-            app:argType="integer"/>
+            android:name="questions_actions"
+            app:argType="string"/>
+        <argument
+            android:name="player_name"
+            app:argType="string"/>
         <action
             android:id="@+id/action_gameFragment2_to_playersFragment2"
             app:destination="@id/playersFragment2" />

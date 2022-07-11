@@ -1,12 +1,12 @@
-package com.example.wata.ui.fragment.tod
+package com.example.wata.ui.fragment.tod.playerslisttod
 
 import com.example.wata.ui.models.PlayerToD
 
 object PlayersRepository {
 
     var players = arrayListOf<PlayerToD>(
-        PlayerToD("Игрок 1"),
-        PlayerToD("Игрок 2")
+        PlayerToD(),
+        PlayerToD()
     )
 
 }
