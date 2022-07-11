@@ -59,7 +59,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
-        android:backgroundTint="#219BCC"
+        android:backgroundTint="@color/new_purple"
         android:fontFamily="@font/days_one"
         android:shadowColor="@color/gray"
         android:shadowDx="2"
