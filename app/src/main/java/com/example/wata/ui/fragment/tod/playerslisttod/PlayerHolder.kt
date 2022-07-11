@@ -1,4 +1,4 @@
-package com.example.wata.ui.fragment.tod
+package com.example.wata.ui.fragment.tod.playerslisttod
 
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,14 +8,13 @@ import com.example.wata.databinding.ItemPlayerTodBinding
 import com.example.wata.ui.models.PlayerToD
 
 class PlayerHolder(
-    private val binding: ItemPlayerTodBinding
+    private val binding: ItemPlayerTodBinding,
+    private val onPlayerDelete: (Int) -> Unit
 ): RecyclerView.ViewHolder(binding.root) {
 
-    fun onBind(playerToD: PlayerToD) {
+    fun onBind(playerToD: PlayerToD, index: Int) {
         with(binding) {
-            val defaultName: String = playerToD.name
-            var newName: String
-            etPlayerName.setText(defaultName)
+            etPlayerName.setText(playerToD.name)
             etPlayerName.addTextChangedListener(object : TextWatcher {
 
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -25,16 +24,13 @@ class PlayerHolder(
                 }
 
                 override fun afterTextChanged(p0: Editable?) {
-                    newName = etPlayerName.text.toString()
-                    if (newName != "") {
-                        playerToD.name = newName
-                    } else {
-                        playerToD.name = defaultName
-                    }
+                    playerToD.name = etPlayerName.text.toString()
                 }
-
             })
 
+            imDeletePlayer.setOnClickListener {
+                onPlayerDelete(index)
+            }
         }
     }
 

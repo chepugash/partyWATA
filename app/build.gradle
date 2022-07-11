@@ -2,9 +2,19 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
 }
 
 android {
+
+
+    android {
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
+
     compileSdk 32
 
     defaultConfig {
@@ -37,6 +47,22 @@ android {
 }
 
 dependencies {
+
+    def version = "2.3.0-beta01"
+    implementation "com.google.android.material:material:1.3.0"
+    //rxjava3
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+    //room
+    implementation "androidx.room:room-runtime:$version"
+    implementation "androidx.room:room-rxjava3:$version"
+    kapt  "androidx.room:room-compiler:$version"
+    implementation "androidx.room:room-ktx:$version"
+    testImplementation "androidx.room:room-testing:$version"
+    //lifecycle
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    implementation "android.arch.lifecycle:extensions:$version"
+    kapt "android.arch.lifecycle:compiler:$version"
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
