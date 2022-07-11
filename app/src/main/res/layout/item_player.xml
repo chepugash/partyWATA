@@ -28,6 +28,7 @@
         tools:hint="Введите имя"
         android:backgroundTint="@android:color/transparent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/iv_player_icon"/>
+        app:layout_constraintStart_toEndOf="@id/iv_player_icon"
+        android:fontFamily="@font/days_one"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
