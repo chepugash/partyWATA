@@ -1216,7 +1216,6 @@ object Repo {
     }
     fun getWordWhoAreMe() :String{
         val index: Int = (0..85).random()
-
         if (!(noAgain.contains(index))) {
             noAgain.add(index)
             return repowhoami[index]
@@ -1225,6 +1224,9 @@ object Repo {
     }
     fun getQuestionTOD() :String{
         val index: Int = (0..42).random()
+        if (noAgain.count() == repoTodQuestions.count()) {
+            noAgain.clear()
+        }
         if (!(noAgain.contains(index))) {
             noAgain.add(index)
             return repoTodQuestions[index]
@@ -1234,7 +1236,9 @@ object Repo {
 
     fun getActionTOD() :String{
         val index: Int = (0..51).random()
-
+        if (noAgain.count() == repoTodActions.count()) {
+            noAgain.clear()
+        }
         if (!(noAgain.contains(index))) {
             noAgain.add(index)
             return repoTodActions[index]
