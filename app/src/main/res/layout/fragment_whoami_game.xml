@@ -25,10 +25,8 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.41" />
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/tv_game_text"
@@ -61,8 +59,8 @@
 
     <Button
         android:id="@+id/btn_continue"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
         android:backgroundTint="#4CAF50"
         android:text="Продолжить"
         android:textSize="16sp"
@@ -70,15 +68,15 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintHorizontal_bias="0.646"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_game_text"
-        app:layout_constraintVertical_bias="0.634" />
+        app:layout_constraintVertical_bias="0.503" />
 
     <Button
         android:id="@+id/btn_exit"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
         android:backgroundTint="#F44336"
         android:text=" Выход "
         android:textSize="16sp"
@@ -86,30 +84,30 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_continue"
-        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintHorizontal_bias="0.982"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_game_text"
-        app:layout_constraintVertical_bias="0.634" />
+        app:layout_constraintVertical_bias="0.503" />
 
     <TextView
         android:id="@+id/tv_player_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="@color/black"
+        android:text="Очередь:"
         android:textSize="30sp"
+        android:textColor="@color/black"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/tv_game_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintHorizontal_bias="0.298"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.287" />
+        app:layout_constraintVertical_bias="0.401" />
 
     <Button
         android:id="@+id/btn_guessed_wrong"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
         android:text="Не угадал"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -118,21 +116,21 @@
         app:layout_constraintHorizontal_bias="0.959"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_game_text"
-        app:layout_constraintVertical_bias="0.642" />
+        app:layout_constraintVertical_bias="0.503" />
 
     <Button
         android:id="@+id/btn_guessed_right"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="15dp"
         android:text="Угадал"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.645"
+        app:layout_constraintHorizontal_bias="0.631"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_game_text"
-        app:layout_constraintVertical_bias="0.642" />
+        app:layout_constraintVertical_bias="0.503" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
