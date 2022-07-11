@@ -3,6 +3,7 @@ package com.example.wata.ui.fragment.whoami
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -18,7 +19,6 @@ class ResultsFragment : Fragment(R.layout.fragment_whoami_results) {
 
     private var _binding: FragmentWhoamiResultsBinding? = null
     private val binding get() = _binding!!
-    private val adapter = PlayerAdapter(PlayerWinRepository.players){}
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,10 +47,9 @@ class ResultsFragment : Fragment(R.layout.fragment_whoami_results) {
                 PlayerRepository.players.clear()
             }
 
-            tvOnePlayerWin.text = "Первый вышедший игрок: \n${PlayerWinRepository.players[0].name}"
-
-            for(i in 0 until PlayerWinRepository.players.size){
-                tvPlayersWin.text = "${tvPlayersWin.text} \n  ${PlayerWinRepository.players[i].name}"
+            tvPlayersWin.text = "1: ${PlayerWinRepository.players[0].name}"
+            for(i in 1 until PlayerWinRepository.players.size){
+                tvPlayersWin.text = "${tvPlayersWin.text} \n${i+1}: ${PlayerWinRepository.players[i].name}"
             }
         }
 

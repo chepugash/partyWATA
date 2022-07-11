@@ -7,12 +7,14 @@ import android.text.InputType
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.wata.R
 import com.example.wata.databinding.FragmentWhoamiPlayersBinding
 import com.example.wata.ui.fragment.whoami.playerlist.PlayerAdapter
 import com.example.wata.ui.fragment.whoami.resources.PlayerRepository
+import com.example.wata.ui.fragment.whoami.resources.PlayerWinRepository
 import com.example.wata.ui.fragment.whoami.resources.WordRepository
 import com.example.wata.ui.models.PlayerWhoAmI
 import kotlin.random.Random
@@ -29,11 +31,13 @@ class PlayersFragment : Fragment(R.layout.fragment_whoami_players) {
 
         _binding = FragmentWhoamiPlayersBinding.bind(view)
 
+        PlayerWinRepository.players.clear()
         PlayerRepository.players.clear()
+
         var rnds = Random(System.nanoTime())
-        PlayerRepository.players.add(PlayerWhoAmI(0,"Игрок 1", WordRepository.wordList[(0..WordRepository.wordList.size).random(rnds)]))
+        PlayerRepository.players.add(PlayerWhoAmI(0,"Игрок 1", WordRepository.wordList[(0 until WordRepository.wordList.size).random(rnds)]))
         rnds = Random(System.nanoTime())
-        PlayerRepository.players.add(PlayerWhoAmI(1,"Игрок 2", WordRepository.wordList[(0..WordRepository.wordList.size).random(rnds)]))
+        PlayerRepository.players.add(PlayerWhoAmI(1,"Игрок 2", WordRepository.wordList[(0 until WordRepository.wordList.size).random(rnds)]))
         initRcViewPlayers()
 
         // Переворот экрана в вертикальную ориентацию
@@ -78,7 +82,7 @@ class PlayersFragment : Fragment(R.layout.fragment_whoami_players) {
                     var prevId: Int = PlayerRepository.players[PlayerRepository.players.size - 1].id
                     var idName: Int = prevId+2
                     var rnds = Random(System.nanoTime())
-                    PlayerRepository.players.add(PlayerWhoAmI(prevId+1,"Игрок $idName", WordRepository.wordList[(0..WordRepository.wordList.size).random(rnds)]))
+                    PlayerRepository.players.add(PlayerWhoAmI(prevId+1,"Игрок $idName", WordRepository.wordList[(0 until WordRepository.wordList.size).random(rnds)]))
                     idName+=1
                     adapter?.notifyDataSetChanged()
                 }
@@ -129,6 +133,17 @@ class PlayersFragment : Fragment(R.layout.fragment_whoami_players) {
             myDialog.show()
         }
         binding.rvPlayer.adapter = adapter
+
+        // ПЕРЕХОД НА НОВЫЙ menuFragment ПРИ НАЖАТИИ НА BACK
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                findNavController().navigate(
+                    R.id.action_playersFragment_to_menuFragment
+                )
+            }
+        }
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
+
     }
     private fun validate(name: String): Boolean {
         if (name.length in 1..20) {
