@@ -218,7 +218,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:visibility="invisible"/>
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_top"
         android:layout_width="wrap_content"
@@ -232,6 +231,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_end="80dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
