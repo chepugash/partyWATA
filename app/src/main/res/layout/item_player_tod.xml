@@ -4,7 +4,7 @@
     android:layout_gravity="center"
     android:layout_margin="8dp"
     android:background="@drawable/rounded_frame_for_players_tod"
-    android:backgroundTint="#219BCC"
+    android:backgroundTint="@color/tod_blue"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -13,7 +13,7 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginStart="8dp"
-        android:src="@drawable/ic_player"
+        android:src="@drawable/ic_player_tod"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>

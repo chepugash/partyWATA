@@ -13,7 +13,7 @@
         android:padding="8dp"
         android:gravity="center"
         android:text="@string/tod_players_header"
-        android:background="#219BCC"
+        android:background="@color/tod_blue"
         android:textSize="25sp"
         android:textColor="@color/white"
         android:fontFamily="@font/days_one"
@@ -76,7 +76,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="4dp"
-            android:backgroundTint="#219BCC"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/tod_blue"
             android:fontFamily="@font/days_one"
             android:text="@string/tod_add_player" />
 
@@ -87,7 +88,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="4dp"
-            android:backgroundTint="#219BCC"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/tod_blue"
             android:fontFamily="@font/days_one"
             android:text="@string/tod_start_game" />
 

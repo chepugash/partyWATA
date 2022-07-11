@@ -15,4 +15,7 @@
     <color name="btn_purple">#E8E4EE</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="whoami_orange">#FFC400</color>
+    <color name="tod_blue">#219BCC</color>
+    <color name="tod_window_back_game">#80FFFFFF</color>
+    <color name="menu_button">#AB47BC</color>
 </resources>
