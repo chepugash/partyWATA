@@ -47,10 +47,8 @@ class ResultsFragment : Fragment(R.layout.fragment_whoami_results) {
                 PlayerRepository.players.clear()
             }
 
-            tvOnePlayerWin.text = "Первый вышедший игрок: \n${PlayerWinRepository.players[0].name}"
-
             for(i in 0 until PlayerWinRepository.players.size){
-                tvPlayersWin.text = "${tvPlayersWin.text} \n  ${PlayerWinRepository.players[i].name}"
+                tvPlayersWin.text = "$i: ${tvPlayersWin.text} \n  ${PlayerWinRepository.players[i].name}"
             }
         }
 

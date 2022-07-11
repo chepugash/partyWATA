@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/back"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background_alias">
 
     <TextView
         android:id="@+id/tv_appbar"
@@ -25,6 +25,7 @@
         android:id="@+id/rv_player"
         android:layout_width="331dp"
         android:layout_height="313dp"
+        android:layout_marginTop="12dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +39,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="112dp"
         android:backgroundTint="@color/purple_200"
-        android:text="+ / -"
+        android:text="+"
         android:gravity="center"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -53,8 +54,8 @@
         android:id="@+id/btn_player_start"
         android:layout_width="170dp"
         android:layout_height="48dp"
-        android:backgroundTint="@color/purple_200"
         android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/purple_200"
         android:text="Далее"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -63,15 +64,15 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btn_exit"
         app:layout_constraintTop_toBottomOf="@+id/btn_plus"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.7" />
 
     <Button
         android:id="@+id/btn_exit"
         android:layout_width="170dp"
         android:layout_height="48dp"
-        android:backgroundTint="@color/purple_200"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="5dp"
+        android:backgroundTint="@color/purple_200"
         android:text="В меню"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -79,6 +80,8 @@
         app:layout_constraintEnd_toStartOf="@+id/btn_player_start"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_plus"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.7" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

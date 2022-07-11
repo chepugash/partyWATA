@@ -1,6 +1,7 @@
 package com.example.wata.ui.fragment
 
 import android.content.Context
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
@@ -39,6 +40,11 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
                 findNavController().navigate(
                     R.id.action_menuFragment_to_playersFragment2
                 )
+            }
+        }
+        if (savedInstanceState == null) {
+            activity?.apply {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
             }
         }
     }

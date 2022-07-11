@@ -7,6 +7,7 @@ import android.text.InputType
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.wata.R
@@ -78,7 +79,7 @@ class PlayersFragment : Fragment(R.layout.fragment_whoami_players) {
                     var prevId: Int = PlayerRepository.players[PlayerRepository.players.size - 1].id
                     var idName: Int = prevId+2
                     var rnds = Random(System.nanoTime())
-                    PlayerRepository.players.add(PlayerWhoAmI(prevId+1,"Игрок $idName", WordRepository.wordList[(0..WordRepository.wordList.size).random(rnds)]))
+                    PlayerRepository.players.add(PlayerWhoAmI(prevId+1,"Игрок $idName", WordRepository.wordList[(0 until WordRepository.wordList.size).random(rnds)]))
                     idName+=1
                     adapter?.notifyDataSetChanged()
                 }
@@ -129,6 +130,17 @@ class PlayersFragment : Fragment(R.layout.fragment_whoami_players) {
             myDialog.show()
         }
         binding.rvPlayer.adapter = adapter
+
+        // ПЕРЕХОД НА НОВЫЙ menuFragment ПРИ НАЖАТИИ НА BACK
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                findNavController().navigate(
+                    R.id.action_playersFragment_to_menuFragment
+                )
+            }
+        }
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
+
     }
     private fun validate(name: String): Boolean {
         if (name.length in 1..20) {
