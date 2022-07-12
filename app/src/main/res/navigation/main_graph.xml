@@ -178,6 +178,9 @@
         <action
             android:id="@+id/action_choiceFragment_to_playersFragment2"
             app:destination="@id/playersFragment2" />
+        <action
+            android:id="@+id/action_choiceFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment2"
@@ -196,6 +199,9 @@
         <action
             android:id="@+id/action_gameFragment2_to_playersFragment2"
             app:destination="@id/playersFragment2" />
+        <action
+            android:id="@+id/action_gameFragment2_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/teamsFragment"

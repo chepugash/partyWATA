@@ -21,14 +21,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/im_players"
+        android:id="@+id/im_go_to_menu"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
-        android:padding="3dp"
-        android:src="@drawable/ic_peoples"
+        android:padding="5dp"
+        android:src="@drawable/ic_home"
         app:layout_constraintBottom_toTopOf="@+id/gl_upper"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/im_players"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_add_players_vect"
+        app:layout_constraintBottom_toTopOf="@+id/gl_upper"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline

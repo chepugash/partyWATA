@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.wata.R
 import com.example.wata.databinding.FragmentTodGameBinding
+import com.example.wata.ui.fragment.tod.playerslisttod.QueuePlayers
 import com.example.wata.ui.repository.Repo
 
 class GameFragment : Fragment(R.layout.fragment_tod_game) {
@@ -34,6 +35,11 @@ class GameFragment : Fragment(R.layout.fragment_tod_game) {
             }
             imPlayers.setOnClickListener {
                 findNavController().navigate(R.id.playersFragment2)
+            }
+            imGoToMenu.setOnClickListener {
+                Repo.endOfPlay_for_repo()
+                QueuePlayers.clearQueue()
+                findNavController().navigate(R.id.menuFragment)
             }
         }
     }

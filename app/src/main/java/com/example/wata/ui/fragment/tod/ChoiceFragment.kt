@@ -41,6 +41,11 @@ class ChoiceFragment : Fragment(R.layout.fragment_tod_choice) {
             imPlayers.setOnClickListener {
                 findNavController().navigate(R.id.playersFragment2)
             }
+            imGoToMenu.setOnClickListener {
+                Repo.endOfPlay_for_repo()
+                QueuePlayers.clearQueue()
+                findNavController().navigate(R.id.menuFragment)
+            }
         }
     }
 
