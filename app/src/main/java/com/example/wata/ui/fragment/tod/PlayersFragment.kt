@@ -91,15 +91,15 @@ class PlayersFragment : Fragment(R.layout.fragment_tod_players) {
 
     private fun alertDialogLessThanTwoPlayers() {
         val builder = this.context?.let { AlertDialog.Builder(it) }
-        builder?.setTitle("Внимание!!")
-        builder?.setMessage("Чтобы начать игру должно быть минимум 2 игроков")
+        builder?.setTitle("Ой...")
+        builder?.setMessage("Чтобы начать игру должно быть минимум 2 игрока")
         builder?.setNegativeButton("OK") { _, _ -> }
         builder?.show()
     }
 
     private fun alertDialogNamelessPlayers() {
         val builder = this.context?.let { AlertDialog.Builder(it) }
-        builder?.setTitle("Внимание!!")
+        builder?.setTitle("Ой...")
         builder?.setMessage("Для начала игры необходимо дать имена всем игрокам")
         builder?.setNegativeButton("OK") { _, _ -> }
         builder?.show()
