@@ -12,14 +12,28 @@
         android:layout_height="56dp"
         android:background="@color/whoami_orange"
         android:gravity="center_vertical"
-        android:paddingStart="35dp"
-        android:paddingEnd="0dp"
+        android:paddingStart="62dp"
         android:text="@string/result_result_fragment"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        android:fontFamily="@font/days_one"/>
+        android:fontFamily="@font/days_one"
+        android:shadowColor="@color/gray"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ibtn_sweet_home"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@color/whoami_orange"
+        android:padding="12dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_baseline_win"
+        app:layout_constraintBottom_toBottomOf="@id/tv_appbar"
+        app:layout_constraintStart_toStartOf="@id/tv_appbar"
+        app:layout_constraintTop_toTopOf="@id/tv_appbar" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_restart"
@@ -69,7 +83,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="30sp"
+            android:layout_gravity="center"
+            android:textSize="24sp"
             android:fontFamily="@font/days_one"/>
     </ScrollView>
 

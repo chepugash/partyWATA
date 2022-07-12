@@ -44,10 +44,10 @@ class ResultsFragment : Fragment(R.layout.fragment_whoami_results) {
                 PlayerRepository.players.clear()
             }
 
-            tvPlayersWin.text = "1: ${PlayerWinRepository.players[0].name}"
+            tvPlayersWin.text = "1 место: ${PlayerWinRepository.players[0].name}"
             for (i in 1 until PlayerWinRepository.players.size) {
                 tvPlayersWin.text =
-                    "${tvPlayersWin.text} \n${i + 1}: ${PlayerWinRepository.players[i].name}"
+                    "${tvPlayersWin.text} \n${i + 1} место: ${PlayerWinRepository.players[i].name}"
             }
         }
 
